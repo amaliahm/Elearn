@@ -31,6 +31,7 @@ var
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  --pc-size: calc(1000px + 10 * (100vw - 320px) / (2560 - 320));
 }
 
 * {
@@ -198,26 +199,28 @@ Pc
 
 .pc {
   position: fixed;
+  top: -10%;
   z-index: 0;
+  height: var(--pc-size);   
 }
 
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
   .pc {
-    height: 600px;    
+    height: var(--pc-size);    
   }
 }
 
-@media (min-width: 800px) and (max-width: 1200px) {
+@media (min-width: 800px) and (max-width: 1000px) {
   .pc {
     height: 800px;    
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
   .pc {
     height: 1000px;    
   }
-}
+} */
 
 
 .flex__center {
