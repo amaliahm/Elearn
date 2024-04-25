@@ -1,6 +1,6 @@
 import React from 'react'
 import Pc from '../../Layouts/Computer'
-import { Chef, Footer, Gallery, Intro, Laurels, SpecialMenu } from '../../container'
+import { Chef, Footer, Gallery, Laurels, SpecialMenu } from '../../container'
 import NavBarComponent from "./NavBar"
 import EnseignantsComponent from "./enseignants"
 import FooterComponent from "./footer"
@@ -29,7 +29,6 @@ const LoadingPageComponent = () => {
             </main>
     <SpecialMenu />
     <Chef />
-    <Intro />
     <Laurels />
     <Gallery />
     

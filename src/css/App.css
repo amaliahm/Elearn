@@ -204,24 +204,10 @@ Pc
   height: var(--pc-size);   
 }
 
-/* @media (max-width: 800px) {
-  .pc {
-    height: var(--pc-size);    
-  }
+
+.app_without_bg {
+  background: var(--color-black);
 }
-
-@media (min-width: 800px) and (max-width: 1000px) {
-  .pc {
-    height: 800px;    
-  }
-}
-
-@media (min-width: 1000px) {
-  .pc {
-    height: 1000px;    
-  }
-} */
-
 
 .flex__center {
   display: flex;
@@ -235,6 +221,12 @@ Pc
   background-size: cover;
   background-repeat: repeat;
   background-attachment: fixed;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
 }
 
 .app__wrapper {
@@ -291,16 +283,12 @@ Pc
 }
 
 .headtext__cormorant {
-   
   color: var(--color-golden);
   font-size: 64px;
   line-height: 83.2px;
   letter-spacing: 0.04em;
   text-transform: capitalize;
-}
-
-.spoon__img {
-  width: 45px;
+  text-align: center;
 }
 
 @media screen and (min-width: 2000px) {
@@ -364,6 +352,28 @@ Pc
     font-size: 45px;
     line-height: 70px;
   }
+}
+
+.list_annees {
+  background-color: var(--color-black);
+  padding: 15px 10px;
+  margin: 20px auto;
+  border-radius: 30px;
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  min-width: 500px;
+  max-width: 600px;
+}
+
+.list_annees > li > a {
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.list_annees > li > a.is_active {
+  background-color: rgb(0, 0, 0);
+  color: var(--color-golden)
 }
 
 

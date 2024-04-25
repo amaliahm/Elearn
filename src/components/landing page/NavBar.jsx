@@ -58,7 +58,7 @@ const NavBarComponent = () => {
                     ))}
                     <Button title="Login" color='var(--main-color)' onClick={()=> navigate('/auth')}/>
                 </nav>
-                <div className="md:hidden flex items-center">
+                <div className="md:hidden flex items-center cursor-pointer">
                     {menu ? (
                         <AiOutlineClose size={25} onClick={handleChange} />
                     ) : (
@@ -69,7 +69,7 @@ const NavBarComponent = () => {
             <div
               className={` ${
                 menu ? "translate-x-0" : "-translate-x-full"
-              } lg:hidden flex flex-col absolute bg-black text-white left-0 top-20 font-semibold text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300`}
+              } lg:hidden flex flex-col absolute bg-black text-white left-0 top-17 font-semibold text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300`}
             >
                 {links.map((e, i) => (
                     <Link 

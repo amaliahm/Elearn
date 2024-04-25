@@ -6,6 +6,7 @@ import Auth from './components/Auth/auth.jsx';
 import LoadingPageComponent from './components/landing page/LandingPage.jsx';
 import './css/App.css';
 
+
 function App() {
 
   const [isLoading, setIsLoading] = useState(true)
