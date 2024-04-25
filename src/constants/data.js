@@ -1,5 +1,53 @@
 import images from './images';
 
+const modules = [
+  {
+    id_module: 0,
+    'nom module': 'ACSI',
+    'nom promo': '1er annee classe superieur',
+    niveau: '1CS',
+    'annee universitaire': '2023/2024',
+    'responsable du module': 'Mr Malki',
+    specialite: '',
+  },
+  {
+    id_module: 1,
+    'nom module': 'Architecture des  Architecture Architecture Architecture ',
+    'nom promo': '2eme annee classe preparatoire',
+    'niveau': '2CP',
+    'annee universitaire': '2023/2024',
+    'responsable du module': 'Mr Kazi-Tani',
+    specialite: '',
+  },
+  {
+    id_module: 3,
+    'nom module': 'Analyse numérique',
+    'nom promo': '1er annee classe preparatoire',
+    'niveau': '1CP',
+    'annee universitaire': '2023/2024',
+    'responsable du module': 'Mr Amroun',
+    specialite: '',
+  },
+  {
+    id_module: 4,
+    'nom module': 'Machine Learning',
+    'nom promo': '2er annee classe superieur',
+    'niveau': '2CS',
+    'annee universitaire': '2023/2024',
+    'responsable du module': 'Mr x',
+    specialite: 'IASD',
+  },
+  {
+    id_module: 5,
+    'nom module': 'module',
+    'nom promo': '3er annee classe superieur',
+    'niveau': '3CS',
+    'annee universitaire': '2023/2024',
+    'responsable du module': 'Mr y',
+    specialite: 'ISI',
+  },
+]
+
 const wines = [
   {
     title: 'Chapel Hill Shiraz',
@@ -79,4 +127,5 @@ const awards = [
   },
 ];
 
-export default { wines, cocktails, awards };
+export { awards, cocktails, modules, wines };
+

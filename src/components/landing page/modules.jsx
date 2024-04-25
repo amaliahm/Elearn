@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Module from '../../Layouts/Module.jsx'
+import { modules } from '../../constants/data.js'
 import '../../css/App.css'
 
 const ModulesComponent = () => {
@@ -31,17 +33,14 @@ const ModulesComponent = () => {
                 </a>
               </li>
             ))}
-            
-       
-        
-      </ul>
-          <h1>ModulesComponent</h1>
-          <h1>ModulesComponent</h1>
-          <h1>ModulesComponent</h1>
-          <h1>ModulesComponent</h1>
-          <h1>ModulesComponent</h1>
-          <h1>ModulesComponent</h1>
-          <h1>ModulesComponent</h1>
+          </ul>
+          <div className='modules_part'>
+            {Object.keys(modules).map((e, i) => (
+              <div key={i}>
+                <Module module={modules[e]} />
+              </div>
+            ))}
+          </div>
         </div>
     )
 }

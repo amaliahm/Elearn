@@ -361,10 +361,21 @@ Pc
   border-radius: 30px;
   color: var(--white);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
   min-width: 500px;
   max-width: 600px;
 }
+
+@media screen and (max-width: 500px) {
+  .list_annees {
+    min-width: 200px;
+    padding: 15px 7px;
+    margin: 10px auto;
+  }
+}
+
 
 .list_annees > li > a {
   padding: 10px 20px;
@@ -376,6 +387,104 @@ Pc
   color: var(--color-golden)
 }
 
+.modules_part {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: start;
+  padding: 2px;
+}
+
+.module__ {
+  background-color: var(--color-black);
+  width: 320px;
+  margin: 0 15px 20px;
+  padding: 0;
+  border-radius: 10px;
+  min-height: 400px;
+  height: fit-content;
+
+}
+
+.module__ > div.image {
+  position: relative;
+  height: 320px;
+  width: 320px;
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
+  background: url('../assets/images/course.png');
+  background-position: center;
+  background-size: 140%;
+  background-repeat: no-repeat;
+  transition: all .5s;
+  padding: 17px 10px;
+}
+
+.module__:hover > div.image {
+  background-size: 200%;
+  cursor: pointer;
+}
+
+.module__ > .image > .niveau {
+  background-color: var(--white);
+  color: var(--dark-blue);
+  padding: 7px 20px;
+  border-radius: 12px;
+}
+
+.module__ > .image > .annee {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  height: 70px;
+  width: 110px;
+  text-align: right;
+  border-bottom-left-radius: 90% 90%;
+  margin-right: auto;
+  transition: all 0.5s;
+}
+
+.module__:hover > .image > .annee {
+  height: 90px;
+  width: 150px;
+}
+
+.module__ > p {
+  color: var(--color-golden);
+  padding: 10px 20px 0;
+  font-size: 14px;
+}
+
+.module__ > h1 {
+  color: var(--white);
+  padding: 10px 20px;
+  font-size: 24px;
+}
+
+
+
+@media screen and (max-width: 400px) {
+  .module__ {
+    width: 240px;
+  }
+
+  .module__ > div.image {
+    height: 240px;
+    width: 240px;
+  }
+
+  .module__ > p {
+    font-size: 10px;
+  }
+
+  .module__ > h1 {
+    font-size: 19px;
+  }
+}
 
 
 
