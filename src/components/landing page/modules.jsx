@@ -24,7 +24,7 @@ const ModulesComponent = () => {
   );
   
     return (
-        <div className="app__bg z-10 section__padding">
+        <div className="app__bg relative z-10 section__padding">
           <h1 className="headtext__cormorant">Courses</h1>
           <ul className="list_annees cursor-pointer">
             {list_annees.map((e, i) => (

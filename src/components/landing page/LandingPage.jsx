@@ -1,6 +1,6 @@
 import React from 'react'
 import Pc from '../../Layouts/Computer'
-import { Chef, Footer, Laurels } from '../../container'
+import MoreInfoComponent from './MoreInfo'
 import NavBarComponent from "./NavBar"
 import EnseignantsComponent from "./enseignants"
 import FooterComponent from "./footer"
@@ -26,11 +26,10 @@ const LoadingPageComponent = () => {
               <div id='enseignants'>
                 <EnseignantsComponent />
               </div>
+              <div id='more-info'>
+                <MoreInfoComponent />
+              </div>
             </main>
-    <Chef />
-    <Laurels />
-    
-    <Footer />
             <FooterComponent />
           </div>
         </>

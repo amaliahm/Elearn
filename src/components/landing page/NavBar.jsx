@@ -3,25 +3,11 @@ import { AiOutlineClose, AiOutlineMenuUnfold } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
 import Button from "../../Layouts/Button";
+import { navBarElements } from "../../constants/data";
 
 const NavBarComponent = () => {
   const [menu, setMenu] = useState(false);
   const navigate = useNavigate()
-
-  const links = [
-    {
-        to: 'home',
-        title: 'Home',
-    },
-    {
-        to: 'modules',
-        title: 'Courses',
-    },
-    {
-        to: 'enseignants',
-        title: 'Professors',
-    },
-  ]
 
   const handleChange = () => {
     setMenu(!menu);
@@ -43,7 +29,7 @@ const NavBarComponent = () => {
                     <h1 className=" text-xl font-semibold" style={{color: 'var(--dark-blue)'}}>Elearn</h1>
                 </div>
                 <nav className="hidden md:flex flex-row items-center text-sm font-medium gap-8">
-                    {links.map((e, i) => (
+                    {navBarElements.map((e, i) => (
                         <Link
                           key={i}
                           to={e.to}
@@ -71,7 +57,7 @@ const NavBarComponent = () => {
                 menu ? "translate-x-0" : "-translate-x-full"
               } lg:hidden flex flex-col absolute bg-black text-white left-0 top-17 font-semibold text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300`}
             >
-                {links.map((e, i) => (
+                {navBarElements.map((e, i) => (
                     <Link 
                       key={i}
                       to={e.to}
