@@ -6,10 +6,10 @@ import '../../css/App.css'
 const ModulesComponent = () => {
 
   const [annee, setAnnee] = useState(0)
-
+  
   function onClick (index) {
     setAnnee(index)
-  }
+}
 
   const list_annees = [
     '1CP',
@@ -19,6 +19,10 @@ const ModulesComponent = () => {
     '3CS',
   ]
 
+  let filteredModule = modules.filter(obj =>
+    obj.niveau === list_annees[annee] 
+  );
+  
     return (
         <div className="app__bg z-10 section__padding">
           <h1 className="headtext__cormorant">Courses</h1>
@@ -35,9 +39,9 @@ const ModulesComponent = () => {
             ))}
           </ul>
           <div className='modules_part'>
-            {Object.keys(modules).map((e, i) => (
+            {filteredModule.map((e, i) => (
               <div key={i}>
-                <Module module={modules[e]} />
+                <Module module={e} />
               </div>
             ))}
           </div>

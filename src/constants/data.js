@@ -12,7 +12,7 @@ const modules = [
   },
   {
     id_module: 1,
-    'nom module': 'Architecture des  Architecture Architecture Architecture ',
+    'nom module': 'Architecture ',
     'nom promo': '2eme annee classe preparatoire',
     'niveau': '2CP',
     'annee universitaire': '2023/2024',
