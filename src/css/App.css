@@ -520,7 +520,7 @@ Pc
   height: 2px;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--main-color);
+  background: var(--color-black);
 }
 
 .app__professors-images_arrows {
@@ -587,7 +587,7 @@ Pc
   background-color: rgba(12, 12, 12, .8);
   min-width: 1060px;
   margin: 0;
-  border-radius: 150px;
+  border-radius: 120px;
 }
 
 @media screen and (max-width: 1100px) {
@@ -615,7 +615,8 @@ Pc
 }
 
 .about-us::before,
-.about-us::after {
+.about-us::after,
+.footer::after {
   content: '';
   z-index: 2;
   background: url(../assets/images/more-info-01.png);
@@ -631,7 +632,8 @@ Pc
   transform: rotateX(180deg);
 }
 
-.about-us::after {
+.about-us::after,
+.footer::after {
   left: 10%;
   top: 0;
 }
@@ -662,29 +664,45 @@ Pc
   margin-top: 15px;
 }
 
-.section {
-  display: block;
-  margin: 0;
-  padding: 0;
-  padding-top: 30px;
-  margin-top: 120px;
-}
-
 
 @media (max-width: 992px) {
-  .fun-facts {
-    margin-top: 70px;
-  }
-  .fun-facts::before {
-    width: 95%;
+  .about-us {
+    margin-top: 50px;
   }
 }
 
-@media (max-width: 1200px) {
-  .fun-facts:before {
-    width: 95%;
-  }
+.footer {
+  background-color: rgba(12, 12, 12, .8);
+  padding: 80px 20px 20px;
+  position: relative;
+  border-radius: 30px 30px 0 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--white);
 }
+
+.footer > a {
+  padding: 10px;
+  text-transform: uppercase;
+  font-size: 28px;
+}
+
+.footer > a:hover {
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* owl file */
