@@ -18,7 +18,7 @@ const NavBarComponent = () => {
   };
 
   const onClickButton = () => {
-    navigate('/auth')
+    navigate('/auth/login')
   }
 
   return (
@@ -42,7 +42,7 @@ const NavBarComponent = () => {
                             {e.title}
                         </Link>
                     ))}
-                    <Button title="Login" color='var(--main-color)' onClick={()=> navigate('/auth')}/>
+                    <Button title="Login" color='var(--main-color)' onClick={()=> navigate('/auth/login')}/>
                 </nav>
                 <div className="md:hidden flex items-center cursor-pointer">
                     {menu ? (
