@@ -126,7 +126,7 @@ const Login = () => {
                     variant="contained"
                     type="submit"
                     // disabled={submitting}
-                    onClick={() => { navigate('/home') }}
+                    onClick={() => { navigate('/login') }}
                     sx={{ width: '50%', marginLeft: '150px', fontFamily: 'Poppins', fontWeight: 'bold' }}
                   >
                     Log in

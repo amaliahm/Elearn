@@ -1,6 +1,6 @@
 import { ACED_Mohammed_Reda, azza_mohammed, NadiaElouali } from '../assets/images';
 
-const navBarElements = [
+const navBarElementsLanding = [
   {
       to: 'home',
       title: 'Home',
@@ -16,6 +16,44 @@ const navBarElements = [
   {
       to: 'more-info',
       title: 'About Us',
+  },
+]
+
+const navBarElementsUser = [
+  {
+      to: 'home',
+      title: 'Home',
+  },
+  {
+      to: 'evaluation',
+      title: 'Assessment',
+  },
+  {
+      to: 'communication',
+      title: 'Communication',
+  },
+  {
+      to: 'profil',
+      title: 'Profile',
+  },
+]
+
+const navBarElementsAdmin = [
+  {
+      to: 'home',
+      title: 'Home',
+  },
+  {
+      to: 'utilisateurs',
+      title: 'Users',
+  },
+  {
+      to: 'communication',
+      title: 'Communication',
+  },
+  {
+      to: 'promo',
+      title: 'Promo',
   },
 ]
 
@@ -122,5 +160,5 @@ const moreInfoElements = [
   },
 ]
 
-export { enseignants, modules, moreInfoElements, navBarElements };
+export { enseignants, modules, moreInfoElements, navBarElementsAdmin, navBarElementsLanding, navBarElementsUser };
 

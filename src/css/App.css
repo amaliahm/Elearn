@@ -26,6 +26,7 @@ var
   --color-crimson: #F5EFDB;
   --color-grey: #AAAAAA;
   --color-white: #FFFFFF;
+  --grey: #43454d;
   font-family: Poppins, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-synthesis: none;

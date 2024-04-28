@@ -3,9 +3,8 @@ import { AiOutlineClose, AiOutlineMenuUnfold } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
 import Button from "../../Layouts/Button";
-import { navBarElements } from "../../constants/data";
 
-const NavBarComponent = () => {
+const NavBarComponent = ({elements, login = false}) => {
   const [menu, setMenu] = useState(false);
   const navigate = useNavigate()
 
@@ -24,12 +23,12 @@ const NavBarComponent = () => {
   return (
     <div className="fixed w-full z-20">
         <div>
-            <div className=" flex flex-row justify-between p-5 md:px-32 px-5 bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+            <div className="flex flex-row justify-between p-5 md:px-32 px-5 bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
                 <div className=" flex flex-row items-center cursor-pointer">
-                    <h1 className=" text-xl font-semibold" style={{color: 'var(--dark-blue)'}}>Elearn</h1>
+                    <h1 className=" text-xl font-semibold" style={{color: 'var(--dark-blue)', background: 'transparent'}}>Elearn</h1>
                 </div>
                 <nav className="hidden md:flex flex-row items-center text-sm font-medium gap-8">
-                    {navBarElements.map((e, i) => (
+                    {elements.map((e, i) => (
                         <Link
                           key={i}
                           to={e.to}
@@ -42,7 +41,7 @@ const NavBarComponent = () => {
                             {e.title}
                         </Link>
                     ))}
-                    <Button title="Login" color='var(--main-color)' onClick={()=> navigate('/auth/login')}/>
+                    { login && <Button title="Login" color='var(--main-color)' onClick={()=> navigate('/auth/login')}/>}
                 </nav>
                 <div className="md:hidden flex items-center cursor-pointer">
                     {menu ? (
@@ -57,7 +56,7 @@ const NavBarComponent = () => {
                 menu ? "translate-x-0" : "-translate-x-full"
               } lg:hidden flex flex-col absolute bg-black text-white left-0 top-17 font-semibold text-2xl text-center pt-8 pb-4 gap-8 w-full h-fit transition-transform duration-300`}
             >
-                {navBarElements.map((e, i) => (
+                {elements.map((e, i) => (
                     <Link 
                       key={i}
                       to={e.to}
@@ -70,7 +69,7 @@ const NavBarComponent = () => {
                         {e.title}
                     </Link>
                 ))}
-                <Button title="login" color='var(--white)' onClick={onClickButton}/>
+                { login && <Button title="login" color='var(--white)' onClick={onClickButton}/>}
             </div>
         </div>
     </div>
