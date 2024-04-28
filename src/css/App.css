@@ -697,6 +697,49 @@ Pc
   cursor: pointer;
 }
 
+/* 
+---------------------------------------------
+profile
+--------------------------------------------- 
+*/
+
+.app_without_bg > .profile-person {
+  background-color: var(--color-crimson);
+  width: 85%;
+  height: 85vh;
+  border-radius: 20px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.app_without_bg > .profile-person > img {
+  width: 200px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .app_without_bg > .profile-person {
+    height: 120px;
+  }
+  .app_without_bg > .profile-person > img {
+    width: 100px;
+  }
+}
+
+.app_without_bg > .profile-person > .profile-info {
+  background-color: red;
+  width: 50%;
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+
+
+
 
 
 

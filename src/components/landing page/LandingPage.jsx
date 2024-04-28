@@ -9,7 +9,7 @@ import HeroComponent from "./hero"
 import ModulesComponent from "./modules"
 
 
-const LoadingPageComponent = () => {
+const LandingPageComponent = () => {
     return (
         <>
           <div>
@@ -37,4 +37,4 @@ const LoadingPageComponent = () => {
     )
 }
 
-export default LoadingPageComponent
+export default LandingPageComponent

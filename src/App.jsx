@@ -6,9 +6,10 @@ import LoginComponent from './components/Auth/LoginComponent.jsx';
 import Forgetpassword from './components/Auth/forgetPassword.jsx';
 import Login from './components/Auth/login.jsx';
 import PasswordReset from './components/Auth/passwordReset.jsx';
-import LoadingPageComponent from './components/landing page/LandingPage.jsx';
+import LandingPageComponent from './components/landing page/LandingPage.jsx';
 import HomeComponentAdmin from './container/HomeAdmin.jsx';
 import HomeComponentUser from './container/HomeUser.jsx';
+import ProfileComponent from './container/Profile.jsx';
 import './css/App.css';
 
 
@@ -37,11 +38,12 @@ function App() {
           
           <Route path='/login' element={<LoginComponent />} />
 
-          <Route path='/' element={<LoadingPageComponent />} />
+          <Route path='/' element={<LandingPageComponent />} />
           <Route path='/auth/login' element={<Login />} />
           <Route path='/auth/password/reset' element={<Forgetpassword />} />
           {/* <Route path='/api/auth/password/reset/confirm/:token' element={<PasswordReset />} /> */}
           <Route path='/auth/password/reset/confirm' element={<PasswordReset />} />
+          <Route path='/profile' element={<ProfileComponent />} />
         </Routes>
       </Router>}
     </>
