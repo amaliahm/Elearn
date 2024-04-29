@@ -1,5 +1,4 @@
 import React from 'react'
-import Pc from '../../Layouts/Computer'
 import { navBarElementsLanding } from '../../constants/data'
 import MoreInfoComponent from './MoreInfo'
 import NavBarComponent from "./NavBar"
@@ -13,9 +12,6 @@ const LandingPageComponent = () => {
     return (
         <>
           <div>
-            <section className={`w-full h-screen lg:px-0 pc`}>
-              <Pc />
-            </section>
             <NavBarComponent elements={navBarElementsLanding} login={true} />
             <main>
               <div id='home'>

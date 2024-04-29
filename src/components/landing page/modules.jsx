@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Module from '../../Layouts/Module.jsx'
 import { modules } from '../../constants/data.js'
 import '../../css/App.css'
 
@@ -25,26 +24,7 @@ const ModulesComponent = () => {
   
     return (
         <div className="app__bg relative z-10 section__padding">
-          <h1 className="headtext__cormorant">Courses</h1>
-          <ul className="list_annees cursor-pointer">
-            {list_annees.map((e, i) => (
-              <li key={i}>
-                <a className={annee === i ? 'is_active' : ''}
-                   data-filter={`.${i}`}
-                   onClick={() => {onClick(i)}}
-                >
-                  {e}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <div className='modules_part'>
-            {filteredModule.map((e, i) => (
-              <div key={i}>
-                <Module module={e} />
-              </div>
-            ))}
-          </div>
+          <h1>module</h1>
         </div>
     )
 }

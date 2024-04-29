@@ -50,7 +50,7 @@ const Login = () => {
   return (
     <Box
       sx={{
-        backgroundColor: 'var(--color-black)',
+        backgroundColor: '#FFFFFF',
         width: '100%',
         height: '100%',
         position: 'absolute',
@@ -69,7 +69,7 @@ const Login = () => {
         <Paper elevation={5}>
           <Stack direction="row">
             <Box sx={{ display: { lg: 'block', xs: 'none' } }}>
-              <img src={login} alt="login" style={{ height: '550px' }} />
+              <img src={login} alt="login" style={{ height: '500px' }} />
             </Box>
             <form onSubmit={formik.handleSubmit} style={{ marginLeft: '50px', marginRight: '50px' }}>
               <Stack mt={10} mb={4}>
@@ -126,7 +126,6 @@ const Login = () => {
                     variant="contained"
                     type="submit"
                     // disabled={submitting}
-                    onClick={() => { navigate('/login') }}
                     sx={{ width: '50%', marginLeft: '150px', fontFamily: 'Poppins', fontWeight: 'bold' }}
                   >
                     Log in
