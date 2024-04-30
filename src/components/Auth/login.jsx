@@ -69,7 +69,7 @@ const Login = () => {
         <Paper elevation={5}>
           <Stack direction="row">
             <Box sx={{ display: { lg: 'block', xs: 'none' } }}>
-              <img src={login} alt="login" style={{ height: '500px' }} />
+              <img src={login} alt="login" style={{ height: '550px' }} />
             </Box>
             <form onSubmit={formik.handleSubmit} style={{ marginLeft: '50px', marginRight: '50px' }}>
               <Stack mt={10} mb={4}>

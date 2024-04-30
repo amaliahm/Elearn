@@ -59,12 +59,12 @@ const navBarElementsAdmin = [
 
 const modules = [
   {
-    id_module: 0,
-    'nom module': 'ACSI',
-    'nom promo': '1er annee classe superieur',
-    niveau: '1CS',
+    id_module: 3,
+    'nom module': 'Analyse numérique',
+    'nom promo': '1er annee classe preparatoire',
+    'niveau': '1CP',
     'annee universitaire': '2023/2024',
-    'responsable du module': 'Mr Malki',
+    'responsable du module': 'Mr Amroun',
     specialite: '',
   },
   {
@@ -77,12 +77,12 @@ const modules = [
     specialite: '',
   },
   {
-    id_module: 3,
-    'nom module': 'Analyse numérique',
-    'nom promo': '1er annee classe preparatoire',
-    'niveau': '1CP',
+    id_module: 0,
+    'nom module': 'ACSI',
+    'nom promo': '1er annee classe superieur',
+    niveau: '1CS',
     'annee universitaire': '2023/2024',
-    'responsable du module': 'Mr Amroun',
+    'responsable du module': 'Mr Malki',
     specialite: '',
   },
   {

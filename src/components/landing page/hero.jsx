@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { education } from '../../assets/images';
 
 const HeroComponent = () => {
+
+  const navigate = useNavigate()
 
     return (
         <>
@@ -15,7 +18,7 @@ const HeroComponent = () => {
                   <p className='text-white pb-3 animated zoomIn'>
                     Plateforme pédagogique en ligne de l'École Supérieure en Informatique de Sidi Bel-Abbés
                   </p>
-                  <a href='' className='btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft'>
+                  <a className='btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft' onClick={() => navigate('/auth/login')}>
                     Login
                   </a>
                   <a href='https://www.esi-sba.dz/fr/' className='btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight'>
