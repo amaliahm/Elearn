@@ -156,7 +156,7 @@ const moreInfoElements = [
   },
   {
     element: 'years experience',
-    number: 500,
+    number: 10,
   },
 ]
 

@@ -18,23 +18,23 @@ const ModulesComponent = () => {
     },
     {
       annee: '1CP',
-      key: '1'
+      key: 1
     },
     {
       annee: '2CP',
-      key: '2'
+      key: 2
     },
     {
       annee: '1CS',
-      key: '3'
+      key: 3
     },
     {
       annee: '2CS',
-      key: '4'
+      key: 4
     },
     {
       annee: '3CS',
-      key: '5'
+      key: 5
     },
   ]
   
