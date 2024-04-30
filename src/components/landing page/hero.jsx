@@ -18,8 +18,8 @@ const HeroComponent = () => {
                   <a href='' className='btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft'>
                     Login
                   </a>
-                  <a href='' className='btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight'>
-                    Contact Us
+                  <a href='https://www.esi-sba.dz/fr/' className='btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight'>
+                    See More
                   </a>
                 </div>
                 <div className='col-lg-6 text-center text-lg-start'>
