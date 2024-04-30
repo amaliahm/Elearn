@@ -22,7 +22,7 @@ const HeroComponent = () => {
                     Contact Us
                   </a>
                 </div>
-                <div className='col-lg-6 text-center text-lg-start w-200'>
+                <div className='col-lg-6 text-center text-lg-start'>
                   <img src={education} className="img-fluid" />
                 </div>
               </div>

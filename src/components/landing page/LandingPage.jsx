@@ -13,7 +13,7 @@ const LandingPageComponent = () => {
           <div>
             <NavBarComponent elements={navBarElementsLanding} login={true} />
             <main>
-              <div id='home' className='container-xxl bg-primary p-0'>
+              <div id='home' className='container-xxl bg-primary p-0 mb-5'>
                 <HeroComponent />
               </div>
               <div id='modules'>
