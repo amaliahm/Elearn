@@ -48,7 +48,7 @@ const navBarElementsAdmin = [
       title: 'Users',
   },
   {
-      to: 'communication',
+      to: '/home/admin/communication',
       title: 'Communication',
   },
   {

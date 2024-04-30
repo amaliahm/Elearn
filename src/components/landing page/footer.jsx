@@ -1,6 +1,6 @@
 const FooterComponent = () => {
     return (
-      <div className="container-fluid bg-primary text-light footer mt-5 pt-5 wow fadeIn" ata-wow-delay="0.1s">
+      <div className="container-fluid bg-primary text-light footer mt-10 pt-5 wow fadeIn" ata-wow-delay="0.1s">
 
         <div className="container px-lg-5">
           <div className="copyright">

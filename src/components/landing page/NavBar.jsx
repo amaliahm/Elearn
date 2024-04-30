@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
 import Button from "../../Layouts/Button";
 
-const NavBarComponent = ({elements, login = false}) => {
+const NavBarComponent = ({elements, login = false, home = false}) => {
   const [menu, setMenu] = useState(false);
   const [link, setLink] = useState(0)
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -14,9 +14,9 @@ const NavBarComponent = ({elements, login = false}) => {
     setMenu(!menu);
   };
 
-  const closeMenu = (i) => {
+  const closeMenu = (i, to) => {
     setMenu(false);
-    setLink(i)
+    home ? navigate(to) : setLink(i)
   };
 
   const onClickButton = () => {
@@ -71,7 +71,7 @@ const NavBarComponent = ({elements, login = false}) => {
                           duration={500}
                           className={`hover:text-brightColor transition-all cursor-pointer no-underline element-link ${link === i ? 'active-link' : ''}`}
                           style={{color: scrollPosition > 120 ? 'var(--color-black)' : 'white'}}
-                          onClick={() => setLink(i)}
+                          onClick={() => home ? navigate(e.to) : setLink(i)}
                         >
                             {e.title}
                         </Link>
@@ -100,7 +100,7 @@ const NavBarComponent = ({elements, login = false}) => {
                       duration={500}
                       data-text={e.title}
                       className={`hover:text-brightColor transition-all cursor-pointer no-underline element-link w-fit ${link === i ? 'active-link' : ''} `}
-                      onClick={() => closeMenu(i)}
+                      onClick={() => closeMenu(i, e.to)}
                     >
                         {e.title}
                     </Link>
