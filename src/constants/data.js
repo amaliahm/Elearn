@@ -160,5 +160,32 @@ const moreInfoElements = [
   },
 ]
 
-export { enseignants, modules, moreInfoElements, navBarElementsAdmin, navBarElementsLanding, navBarElementsUser };
+const groupe_communication = [
+  {
+    id: 0,
+    nom: '1CS',
+    annee:'2023-2024',
+    student: 180,
+    question: 250,
+    answer: 600,
+  },
+  {
+    id: 1,
+    nom: '2CS',
+    annee:'2023-2024',
+    student: 150,
+    question: 200,
+    answer: 700,
+  },
+  {
+    id: 2,
+    nom: '2CP',
+    annee:'2023-2024',
+    student: 250,
+    question: 364,
+    answer: 598,
+  },
+]
+
+export { enseignants, groupe_communication, modules, moreInfoElements, navBarElementsAdmin, navBarElementsLanding, navBarElementsUser };
 
