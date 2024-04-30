@@ -2,6 +2,7 @@ import React from 'react'
 import { navBarElementsLanding } from '../../constants/data'
 import MoreInfoComponent from './MoreInfo'
 import NavBarComponent from './NavBar'
+import EnseignantsComponent from './enseignants'
 import FooterComponent from "./footer"
 import HeroComponent from "./hero"
 import ModulesComponent from "./modules"
@@ -20,7 +21,7 @@ const LandingPageComponent = () => {
                 <ModulesComponent />
               </div>
               <div id='enseignants'>
-                {/* <EnseignantsComponent /> */}
+                <EnseignantsComponent />
               </div>
               <div id='more-info'>
                 <MoreInfoComponent />

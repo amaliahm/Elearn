@@ -67,7 +67,11 @@ const ModulesComponent = () => {
             </div>
             <div className='row g-4 portfolio-container'>
               {Object.keys(modules).map((e, i) => (
-                <div className={`col-lg-4 col-md-6 portfolio-item wow zoomIn hover:cursor-pointer ${(i % 2) == 0 ? 'first' : 'second'}`} data-wow-delay={`${i * 0.2 + 0.1}s`}>
+                <div 
+                  className={`col-lg-4 col-md-6 portfolio-item wow zoomIn hover:cursor-pointer ${(i % 2) == 0 ? 'first' : 'second'}`} 
+                  data-wow-delay={`${i * 0.2 + 0.1}s`}
+                  key={`course-${i + 1}`}
+                >
                   <div className='position-relative rounded overflow-hidden'>
                     <img className="img-fluid w-100" src={course} alt="course" />
                     <div className='portfolio-overlay'>
