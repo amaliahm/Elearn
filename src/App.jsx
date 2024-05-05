@@ -6,6 +6,8 @@ import PrivateRoute from './Layouts/PrivateRoute.jsx';
 import Forgetpassword from './components/Auth/forgetPassword.jsx';
 import Login from './components/Auth/login.jsx';
 import PasswordReset from './components/Auth/passwordReset.jsx';
+import Cohorte from './components/communication/Cohorte.jsx';
+import AddCohorte from './components/communication/addCohorte.jsx';
 import CommunicationAdmin from './components/communication/communicationAdmin.jsx';
 import LandingPageComponent from './components/landing page/LandingPage.jsx';
 import HomeComponentAdmin from './container/HomeAdmin.jsx';
@@ -35,6 +37,8 @@ function App() {
             <Route key='home-admin' element={<HomeComponentAdmin />} path='/home/admin' exact/>
             <Route key='home-admin-communication' element={<CommunicationAdmin />} path='/home/admin/communication' exact/>
             <Route key='home-user' element={<HomeComponentUser />} path='/home/user' exact/>
+            <Route key='home-admin-communication-add' element={<AddCohorte />} path='/home/admin/communication/add-cohorte' exact/>
+            <Route key='cohorte' element={<Cohorte />} path='/home/admin/communication/:id' exact />
 
           
 

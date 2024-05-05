@@ -187,5 +187,16 @@ const groupe_communication = [
   },
 ]
 
-export { enseignants, groupe_communication, modules, moreInfoElements, navBarElementsAdmin, navBarElementsLanding, navBarElementsUser };
+const promo = [
+  {
+    id_promo: 0,
+    nom: '1CP 2023-2024',
+  },
+  {
+    id_promo: 0,
+    nom: '3CS 2023-2024',
+  },
+]
+
+export { enseignants, groupe_communication, modules, moreInfoElements, navBarElementsAdmin, navBarElementsLanding, navBarElementsUser, promo };
 

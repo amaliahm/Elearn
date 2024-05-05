@@ -1,7 +1,7 @@
 import React from 'react'
 import { navBarElementsLanding } from '../../constants/data'
 import MoreInfoComponent from './MoreInfo'
-import NavBarComponent from './NavBar'
+import NavBar from './NavBar'
 import EnseignantsComponent from './enseignants'
 import FooterComponent from "./footer"
 import HeroComponent from "./hero"
@@ -12,7 +12,7 @@ const LandingPageComponent = () => {
     return (
         <>
           <div>
-            <NavBarComponent elements={navBarElementsLanding} login={true} />
+            <NavBar elements={navBarElementsLanding} login={true} />
             <main>
               <div id='home' className='container-xxl bg-primary p-0 mb-5'>
                 <HeroComponent />

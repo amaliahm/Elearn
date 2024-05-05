@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
 import Button from "../../Layouts/Button";
 
-const NavBarComponent = ({elements, login = false, home = false, element = 0}) => {
+const NavBar = ({elements, login = false, home = false, element = 0}) => {
   const [menu, setMenu] = useState(false);
   const [link, setLink] = useState(element)
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -112,4 +112,4 @@ const NavBarComponent = ({elements, login = false, home = false, element = 0}) =
   );
 };
 
-export default NavBarComponent
+export default NavBar
