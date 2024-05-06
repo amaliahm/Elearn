@@ -6,10 +6,11 @@ import '../../css/App.css'
 const ModulesComponent = () => {
   const list_annees = ['All', '1CP', '2CP', '1CS', '2CS', '3CS']
 
-  const [annee, setAnnee] = useState(list_annees)
+  const [annee, setAnnee] = useState(0)
   const [moduleItems, setModuleItems] = useState(modules)
 
-  const filterItems = (e) => {
+  const filterItems = (e, i) => {
+    setAnnee(i)
     if (e === 'All') {
       setModuleItems(modules)
       return;
@@ -36,7 +37,7 @@ const ModulesComponent = () => {
                 <ul className="list-inline mb-5" id="portfolio-flters">
                   {list_annees.map((e, i) => (
                     <li 
-                      onClick={() => filterItems(e)}
+                      onClick={() => filterItems(e, i)}
                       key={i}
                       className={`btn px-3 pe-4 ${annee == i ? 'active' : ''} `} 
                     >
@@ -49,7 +50,7 @@ const ModulesComponent = () => {
             <div className='row g-4 portfolio-container'>
               {Object.keys(moduleItems).map((e, i) => (
                 <div 
-                  className={`col-lg-4 col-md-6 portfolio-item wow zoomIn hover:cursor-pointer ${(i % 2) == 0 ? 'first' : 'second'}`} 
+                  className={`col-lg-4 col-md-6 portfolio-item module_item_animation wow zoomIn hover:cursor-pointer ${(i % 2) == 0 ? 'first' : 'second'}`} 
                   data-wow-delay={`${i * 0.2 + 0.1}s`}
                   key={`course-${i + 1}`}
                 >

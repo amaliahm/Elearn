@@ -2176,6 +2176,15 @@ h6,
   transition-delay: .15s;
 }
 
+.module-item-animation {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  visibility: visible;
+  animation-delay: 0.1s;
+  animation-name: zoomIn;
+}
+
 
 /*** Footer ***/
 .footer {
