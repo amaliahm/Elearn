@@ -2176,16 +2176,6 @@ h6,
   transition-delay: .15s;
 }
 
-.module-item-animation {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  visibility: visible;
-  animation-delay: 0.1s;
-  animation-name: zoomIn;
-}
-
-
 /*** Footer ***/
 .footer {
   background: url(../assets/images/footer.png) center center no-repeat;
@@ -2485,6 +2475,7 @@ div .active-link {
 }
 
 .accordion {
+  width: 90%;
   margin-top: -40px;
   margin-bottom: -40px;
   background-color: var(--main-color);

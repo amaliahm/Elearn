@@ -50,7 +50,7 @@ const ModulesComponent = () => {
             <div className='row g-4 portfolio-container'>
               {Object.keys(moduleItems).map((e, i) => (
                 <div 
-                  className={`col-lg-4 col-md-6 portfolio-item module_item_animation wow zoomIn hover:cursor-pointer ${(i % 2) == 0 ? 'first' : 'second'}`} 
+                  className={`col-lg-4 col-md-6 portfolio-item wow zoomIn hover:cursor-pointer ${(i % 2) == 0 ? 'first' : 'second'}`} 
                   data-wow-delay={`${i * 0.2 + 0.1}s`}
                   key={`course-${i + 1}`}
                 >
