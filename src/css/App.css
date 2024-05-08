@@ -2310,8 +2310,8 @@ div .active-link {
 }
 
 .section {
-  padding-top: 30px;
-  margin-top: 120px;
+  padding-top: 0;
+  margin-top: 10px;
 }
 
 .events .item {
@@ -2533,5 +2533,4 @@ h2.accordion-header button {
   font-size: 14px;
   line-height: 28px;
   color: #000;
-
 }

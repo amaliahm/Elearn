@@ -1,4 +1,3 @@
-import { Button } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 import { cohorte } from "../../assets/images"
 import { groupe_communication, navBarElementsAdmin } from "../../constants/data"
@@ -13,19 +12,6 @@ const CommunicationAdmin = () => {
         <>
           <div className='container-xxl bg-white p-0'>
             <NavBarComponent elements={navBarElementsAdmin} element={2}/>
-            <Button 
-              variant="contained"
-              sx={{
-                position: 'fixed',
-                top: '90px',
-                left: '20px',
-                zIndex: '10',
-                background: 'var(--main-color)'
-              }}
-              onClick={() => navigate('/home/admin/communication/add-cohorte')}
-            >
-                Add Cohorte
-            </Button>
             <main>
                 <div className="container-xxl p-0 mb-5">
                     <div className="container-xxl py-5">
@@ -39,7 +25,7 @@ const CommunicationAdmin = () => {
                                 </h1>
                             </div>
                         </div>
-                        <div className="section events">
+                        <div className="section events mt-0">
                             <div className="container">
                                 <div className="row">
                                     {Object.keys(groupe_communication).map((e, i) => (
