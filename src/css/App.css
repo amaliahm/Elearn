@@ -2535,8 +2535,11 @@ h2.accordion-header button {
 }
 
 .accordion-body span:first-of-type {
-  display: block;
   font-weight: 500;
   text-transform: uppercase;
+}
+
+.accordion-body span:first-of-type p {
   color: var(--main-color);
+  cursor: pointer;
 }

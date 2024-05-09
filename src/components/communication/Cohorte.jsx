@@ -31,10 +31,18 @@ const Cohorte = () => {
                                     </Accordion.Header>
                                     <Accordion.Body>
                                         <hr />
-                                        <span>
-                                            {e.person}
-                                        </span>
                                         {e.info}
+                                        <span className="flex justify-between align-center">
+                                            <p>
+                                                {e.person}
+                                            </p>
+                                            <p>
+                                                0 answers
+                                            </p>
+                                            <p>
+                                                Comments
+                                            </p>
+                                        </span>
                                         <hr />
                                         <span className="flex justify-between align-center">
                                             {e.time}
