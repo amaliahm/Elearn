@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import { useState } from "react";
 import { Accordion } from 'react-bootstrap';
 import { BsArrowRightShort } from 'react-icons/bs';
@@ -10,6 +11,14 @@ const Cohorte = () => {
     return (
         <>
           <div className='container-xxl bg-white p-0'>
+            <div className="absolute top-5 right-5">
+                <Button style={{background: 'var(--main-color)', color: 'white', borderRadius: '50%', padding: 0}} >
+                    +
+                </Button>
+                <Button >
+                    #
+                </Button>
+            </div>
             <main>
                 <div className="container-xxl p-0 mb-5">
                     <div className="container-xxl py-5">
