@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Accordion } from 'react-bootstrap';
+import { BsArrowRightShort } from 'react-icons/bs';
 import { questions } from "../../constants/data";
 
 const Cohorte = () => {
@@ -26,10 +27,19 @@ const Cohorte = () => {
                             {questions.map((e, i) => (
                                 <Accordion.Item key={e.id} eventKey={i} >
                                     <Accordion.Header>
-                                        {e.title}
+                                        {e.tag}
                                     </Accordion.Header>
                                     <Accordion.Body>
+                                        <hr />
+                                        <span>
+                                            {e.person}
+                                        </span>
                                         {e.info}
+                                        <hr />
+                                        <span className="flex justify-between align-center">
+                                            {e.time}
+                                            <BsArrowRightShort className="professors__arrow-icon" onClick={() => {}} />
+                                        </span>
                                     </Accordion.Body>
                                 </Accordion.Item>
                             ))}
