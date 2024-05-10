@@ -58,7 +58,7 @@ const Cohorte = () => {
                                         <hr />
                                         <span className="flex justify-between align-center">
                                             {e.time}
-                                            <BsArrowRightShort className="professors__arrow-icon" onClick={() => {}} />
+                                            <BsArrowRightShort className="professors__arrow-icon" onClick={() => navigate(`${location.pathname}/question`)} />
                                         </span>
                                     </Accordion.Body>
                                 </Accordion.Item>

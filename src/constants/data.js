@@ -243,5 +243,32 @@ const questions = [
 
 const tags = ['tag1', 'tag2', 'python']
 
-export { enseignants, groupe_communication, modules, moreInfoElements, navBarElementsAdmin, navBarElementsLanding, navBarElementsUser, promo, questions, tags };
+const question = [
+  {
+    id: 0,
+    title: "what's python",
+    description: 'please',
+    tags: ['tag1', 'tag2'],
+    time: '16-03-2024',
+    person: 'issam',
+    comments: [
+      {
+        agree: 5,
+        disafree: 2,
+        person: 'person 1',
+        comment: '.....',
+        time: '19-03-2024 12:40'
+      },
+      {
+        agree: 5,
+        disafree: 2,
+        person: 'person 2',
+        comment: '-----',
+        time: '19-03-2024 12:40'
+      },
+    ]
+  }
+]
+
+export { enseignants, groupe_communication, modules, moreInfoElements, navBarElementsAdmin, navBarElementsLanding, navBarElementsUser, promo, question, questions, tags };
 
