@@ -2155,7 +2155,8 @@ h6,
   opacity: 1;
 }
 
-.portfolio-item .btn {
+.portfolio-item .btn,
+.add-comm {
   position: absolute;
   width: 90px;
   height: 90px;
@@ -2169,6 +2170,12 @@ h6,
   transition: .5s;
   opacity: 0;
   z-index: 2;
+}
+
+.add-comm {
+  opacity: 1;
+  background: url(../assets/images/icon-shape-primary.png) center center no-repeat;
+  background-size: 80%;
 }
 
 .portfolio-item:hover .btn {

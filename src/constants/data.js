@@ -241,5 +241,7 @@ const questions = [
   },
 ]
 
-export { enseignants, groupe_communication, modules, moreInfoElements, navBarElementsAdmin, navBarElementsLanding, navBarElementsUser, promo, questions };
+const tags = ['tag1', 'tag2', 'python']
+
+export { enseignants, groupe_communication, modules, moreInfoElements, navBarElementsAdmin, navBarElementsLanding, navBarElementsUser, promo, questions, tags };
 

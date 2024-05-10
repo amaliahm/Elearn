@@ -1,22 +1,25 @@
 import { Button } from "@mui/material";
-import { useState } from "react";
 import { Accordion } from 'react-bootstrap';
 import { BsArrowRightShort } from 'react-icons/bs';
+import { FaHashtag, FaQuestion } from "react-icons/fa";
+import { useLocation, useNavigate } from "react-router-dom";
 import { questions } from "../../constants/data";
 
 const Cohorte = () => {
 
-  const [show, setShow] = useState(false)
+    const navigate = useNavigate()
+    const location = useLocation()
+    console.log(location.pathname)
     
     return (
         <>
           <div className='container-xxl bg-white p-0'>
-            <div className="absolute top-5 right-5">
-                <Button style={{background: 'var(--main-color)', color: 'white', borderRadius: '50%', padding: 0}} >
-                    +
+            <div className="absolute top-1 right-5">
+                <Button className="add-comm" style={{color: 'white'}} >
+                    <FaQuestion />
                 </Button>
-                <Button >
-                    #
+                <Button className="add-comm" style={{color: 'white'}} >
+                    <FaHashtag onClick={() => navigate(`${location.pathname}/tags`)} />
                 </Button>
             </div>
             <main>
