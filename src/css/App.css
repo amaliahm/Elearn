@@ -2550,3 +2550,245 @@ h2.accordion-header button {
   color: var(--main-color);
   cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+  font-family: 'Rubik', sans-serif;
+}
+
+body{
+  @apply bg-[#F5F6FA]
+}
+
+.app{
+  @apply flex justify-center w-full;
+}
+
+.layout{
+  @apply flex flex-col justify-center items-center max-w-[800px] w-full bg-[#F5F6FA]
+}
+
+.comment-layout{
+  @apply  w-full flex flex-col gap-2 p-4
+}
+
+.comment{
+  @apply flex gap-4 rounded-lg bg-[#FFFFFF] w-full h-full p-4 relative min-h-[200px]
+}
+
+.comment-score{
+  @apply flex flex-col bg-[#F5F6FA] rounded-lg items-center p-2 h-fit mb-auto gap-2
+}
+
+.comment-score i{
+  @apply text-[#5358B6] opacity-40
+}
+
+.comment-score i:hover{
+  @apply opacity-100
+}
+
+.cusrsor{
+  cursor: pointer;
+}
+
+.comment-p{
+  @apply rounded-lg w-full border-black border-2 h-[100px] p-1 px-6
+}
+
+.comment-opt{
+  @apply absolute top-4 right-4 flex gap-4
+}
+
+.comments-main-section{
+  @apply w-full
+}
+
+.comment-bottom{
+  @apply  w-full flex justify-end
+}
+
+.comment-update{
+  @apply rounded-md bg-[#5358B6] px-8 p-2 h-fit font-semibold text-white w-[8rem]
+}
+
+.comment-headline{
+  @apply flex gap-2 w-full items-center
+}
+
+.comment-headline .time{
+  color: #B5B9BB;
+}
+
+.comment-img{
+  @apply rounded-full object-cover p-1 bg-white w-10
+}
+
+.comment-reply-list{
+  @apply flex flex-col gap-2 w-[95%] ml-[5%] pl-[7%] border-l-2 border-[#E8E9ED]
+}
+
+.comment-reply{
+  @apply min-h-[150px] bg-[#FFFFFF] rounded-lg flex p-4 gap-4
+}
+.comment-reply .image{
+  @apply flex w-10
+}
+
+.image-img{
+  @apply bg-slate-100 h-fit rounded-full object-cover
+}
+
+.form{
+  @apply flex w-full gap-4
+}
+
+.textarea{
+  @apply rounded-lg w-[80%] border-[#E8E9ED] border-2 p-4 px-6
+}
+
+.textarea:focus{
+  @apply border-[#E8E9ED]
+}
+
+.button-r{
+  @apply rounded-md bg-[#5358B6] px-8 p-2 h-fit font-semibold text-white w-[8rem]
+}
+
+.button-r:hover, .comment-update:hover{
+  @apply opacity-60
+}
+
+/* .comment-reply{} */
+
+::-webkit-scrollbar{
+  width: 3px;
+  padding-left: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 2px;
+}
+
+.dialog{
+  @apply rounded-lg p-6 w-[355px]
+}
+
+.title-h1{
+  @apply font-extrabold text-lg pb-4
+}
+
+.conf-cont{
+  @apply text-[#9FA0A3] pb-4
+}
+
+.options-conf{
+  @apply w-full flex justify-between text-white
+}
+
+.no{
+  @apply bg-[#68727E] py-2 px-[1.6rem] rounded-lg
+}
+
+.yes{
+  @apply bg-[#EE6368] py-2 px-[1.6rem] rounded-lg
+}
+
+@media only screen and (max-width: 375px) {
+
+  .no,.yes{
+    @apply px-[1.25rem] !important
+  }
+
+  .comment{
+    @apply flex-col-reverse h-fit
+  }
+
+  .comment-score{
+    @apply flex-row w-fit gap-3
+  }
+
+  .comment-opt{
+    @apply bottom-2 top-[75%]
+  }
+
+  .comment-reply{
+    @apply flex-col-reverse h-fit min-h-[180px] relative
+  }
+  .form{
+    @apply flex-col w-full items-end
+  }
+  .textarea{
+    @apply w-full
+  }
+  .image{
+    @apply absolute bottom-4 left-4
+  }
+  .textarea{
+    @apply py-2 px-3 min-h-[90px]
+  }
+}
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

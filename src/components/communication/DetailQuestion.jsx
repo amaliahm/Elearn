@@ -1,10 +1,13 @@
 import { question } from "../../constants/data";
+import Comments from './comment';
+import Reply from "./reply";
 
 const DetailQuestion = () => {
 
     
     return (
         <>
+            
           <div className='container-xxl bg-white p-0'>
             <main>
                 <div className="container-xxl p-0 mb-5">
@@ -19,11 +22,13 @@ const DetailQuestion = () => {
                                 </h1>
                             </div>
                         </div>
-                        <div style={{border: '2px solid black'}}>
+                        <div >
                             {question.map((e, i) => (
                                 <div 
-                                  key={i}
+                                  key={i} className='bg-[#F5F6FA] p-3 rounded-2xl'
                                 >
+                                    <div>
+
                                     <h6 className="d-inline text-primary ps-4">
                                         {e.title}
                                     </h6>
@@ -35,12 +40,12 @@ const DetailQuestion = () => {
                                         <span 
                                           key={iTag} 
                                           className="ml-3"
-                                          style={{background: 'gray', color: 'white', borderRadius: '10px', padding: '7px 15px'}}
+                                          style={{background: 'var(--main-color)', color: 'white', borderRadius: '10px', padding: '7px 15px'}}
                                         >
                                             {tag}
                                         </span>
                                     ))}
-                                    <div className="flex justify-between align-center mt-4" style={{width: '40%'}}>
+                                    <div className="flex justify-between align-center mt-4" style={{width: '30%'}}>
                                         <span>
                                             {e.time}
                                         </span>
@@ -49,6 +54,12 @@ const DetailQuestion = () => {
                                         </span>
                                     </div>
                                     <hr />
+                                    </div>
+                                    <div className="flex flex-col justify-center items-center w-full " >
+
+                                        <Comments comments={e.comments}/>
+                                    </div>
+                                    <Reply />
                                 </div>
                             ))}
                         </div>

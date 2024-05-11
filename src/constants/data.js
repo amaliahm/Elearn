@@ -40,7 +40,7 @@ const navBarElementsUser = [
 
 const navBarElementsAdmin = [
   {
-      to: 'home',
+      to: '/home/admin',
       title: 'Home',
   },
   {
@@ -253,19 +253,42 @@ const question = [
     person: 'issam',
     comments: [
       {
-        agree: 5,
-        disafree: 2,
-        person: 'person 1',
-        comment: '.....',
-        time: '19-03-2024 12:40'
+        id: 1,
+        content: "reponse 1",
+        createdAt: "2023-07-04T12:00:00Z",
+        agree: 12,
+        disagree: 2,
+        user: 'person 1',
+        replies: []
       },
       {
-        agree: 5,
-        disafree: 2,
-        person: 'person 2',
-        comment: '-----',
-        time: '19-03-2024 12:40'
-      },
+        id: 2,
+        content: "reponse 2",
+        createdAt: "2023-07-18T12:00:00Z",
+        agree: 12,
+        disagree: 2,
+        user: 'person 2',
+        replies: [
+          {
+            id: 3,
+            content: "reponse pour commentaire 1",
+            createdAt: "2023-07-25T12:00:00Z",
+            agree: 12,
+            disagree: 2,
+            replyingTo: "maxblagun",
+            user: 'person 1'
+          },
+          {
+            id: 4,
+            content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam omnis eveniet qui nobis sint voluptatibus officia obcaecati aliquam cum. Mollitia, adipisci! Nulla corporis similique iusto ullam ad alias veritatis ex voluptatem eveniet non nemo deleniti reprehenderit, harum nisi voluptas excepturi omnis voluptates sed, atque voluptatibus illo nam repellat? Omnis, eius.",
+            createdAt: "2023-08-02T12:00:00Z",
+            agree: 12, 
+            disagree: 2,
+            replyingTo: "ramsesmiron",
+            user: 'person 3'
+          }
+        ]
+      }
     ]
   }
 ]
