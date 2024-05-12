@@ -34,26 +34,26 @@ const ComntBody = ({comment}) => {
   return (
     <>
     <div className='flex gap-4 rounded-lg bg-[#FFFFFF] w-[95%] h-full p-4 relative min-h-[200px] '>
-      <div className='comment-score'>
-        <i className='cusrsor' onClick={()=> {}}><AiOutlinePlus size={15}/></i>
+      <div className='flex flex-col bg-[#F5F6FA] rounded-lg items-center p-2 h-fit mb-auto gap-2'>
+        <i className='text-[#5358B6] opacity-40 hover:cursor-pointer hover:opacity-100' onClick={()=> {}}><AiOutlinePlus size={15}/></i>
         <p>{target.agree}</p>
         <p>{target.disagree}</p>
-        <i className='cusrsor' onClick={()=>{}}><AiOutlineMinus size={15}/></i>
+        <i className='text-[#5358B6] opacity-40 hover:cursor-pointer hover:opacity-100' onClick={()=>{}}><AiOutlineMinus size={15}/></i>
       </div>
-      <div className='comments-main-section'>
-        <div className='comment-headline'>
+      <div className='w-full'>
+        <div className='flex gap-2 w-full items-center'>
           <p className=' font-[600]'>{target.user}</p>
-          <p className='time'>{
+          <p className='text-[#B5B9BB]'>{
             timePasses() < 1? 'Today':
             timePasses() < 7? timePasses() +' days ago':
             timePasses() <= 29? timePasses()%7 +' weeks ago':
             timePasses() % 29 + ' month ago'
           }</p>
-          <div className='comment-opt'>
-             <p className='flex items-center gap-1 text-[#5358B6] cusrsor' onClick={()=>setReply(!reply)}><i><FaReply size={15}/></i>Reply</p>
+          <div className='absolute top-4 right-4 flex gap-4'>
+             <p className='flex items-center gap-1 text-[#5358B6] cursor-pointer' onClick={()=>setReply(!reply)}><i><FaReply size={15}/></i>Reply</p>
           </div>
         </div>
-        <div className='comments-body'>
+        <div>
             <p>{target.content}</p>
         </div>
       </div>

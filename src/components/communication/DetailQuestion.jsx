@@ -56,7 +56,6 @@ const DetailQuestion = () => {
                                     <hr />
                                     </div>
                                     <div className="flex flex-col justify-center items-center w-full " >
-
                                         <Comments comments={e.comments}/>
                                     </div>
                                     <Reply />

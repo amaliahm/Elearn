@@ -19,7 +19,6 @@ const Comments = ({comments}) => {
           </div>
       </>
      ))}
-     
     </div>
   )
 }
