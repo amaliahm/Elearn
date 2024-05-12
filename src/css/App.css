@@ -793,11 +793,20 @@ h6,
 
 
 /*** Service ***/
+
+.service {
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 .service-item {
   position: relative;
-  height: 350px;
-  padding: 30px 25px;
-  background: #FFFFFF;
+  width: 300px;
+  height: 200px;
+  padding: 20px 25px;
+  background: var(--white);
   box-shadow: 0 0 45px rgba(0, 0, 0, .08);
   transition: .5s;
 }
@@ -806,30 +815,12 @@ h6,
   background: var(--primary);
 }
 
-.service-item .service-icon {
-  margin: 0 auto 20px auto;
-  width: 90px;
-  height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--light);
-  background: url(../assets/images/icon-shape-primary.png) center center no-repeat;
+
+.service-item h5{
   transition: .5s;
 }
 
-.service-item:hover .service-icon {
-  color: var(--primary);
-  background: url(../assets/images/icon-shape-white.png);
-}
-
-.service-item h5,
-.service-item p {
-  transition: .5s;
-}
-
-.service-item:hover h5,
-.service-item:hover p {
+.service-item:hover h5{
   color: var(--light);
 }
 

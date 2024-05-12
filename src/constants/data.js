@@ -25,7 +25,7 @@ const navBarElementsUser = [
       title: 'Home',
   },
   {
-      to: 'evaluation',
+      to: '/home/user/assessment',
       title: 'Assessment',
   },
   {

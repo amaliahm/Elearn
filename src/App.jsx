@@ -12,6 +12,7 @@ import DetailQuestion from './components/communication/DetailQuestion.jsx';
 import Tags from './components/communication/Tags.jsx';
 import CommunicationAdmin from './components/communication/communicationAdmin.jsx';
 import LandingPageComponent from './components/landing page/LandingPage.jsx';
+import Quiz from './components/quiz/Quiz.jsx';
 import HomeComponentAdmin from './container/HomeAdmin.jsx';
 import HomeComponentUser from './container/HomeUser.jsx';
 import ProfileComponent from './container/Profile.jsx';
@@ -43,6 +44,7 @@ function App() {
             <Route key='tags' element={<Tags />} path='/home/admin/communication/:id/tags' exact />
             <Route key='add-question' element={<AddQuestion />} path='/home/admin/communication/:id/add' exact />
             <Route key='details-question' element={<DetailQuestion />} path='/home/admin/communication/:id/question' exact />
+            <Route key='quiz' element={<Quiz />} path='/home/user/assessment' exact />
 
           
 
