@@ -6,6 +6,7 @@ import PrivateRoute from './Layouts/PrivateRoute.jsx';
 import Forgetpassword from './components/Auth/forgetPassword.jsx';
 import Login from './components/Auth/login.jsx';
 import PasswordReset from './components/Auth/passwordReset.jsx';
+import AddQuestion from './components/communication/AddQuestion.jsx';
 import Cohorte from './components/communication/Cohorte.jsx';
 import DetailQuestion from './components/communication/DetailQuestion.jsx';
 import Tags from './components/communication/Tags.jsx';
@@ -40,6 +41,7 @@ function App() {
             <Route key='home-user' element={<HomeComponentUser />} path='/home/user' exact/>
             <Route key='cohorte' element={<Cohorte />} path='/home/admin/communication/:id' exact />
             <Route key='tags' element={<Tags />} path='/home/admin/communication/:id/tags' exact />
+            <Route key='add-question' element={<AddQuestion />} path='/home/admin/communication/:id/add' exact />
             <Route key='details-question' element={<DetailQuestion />} path='/home/admin/communication/:id/question' exact />
 
           

@@ -16,7 +16,7 @@ const Cohorte = () => {
           <div className='container-xxl bg-white p-0'>
             <div className="absolute top-1 right-5">
                 <Button className="add-comm" style={{color: 'white'}} >
-                    <FaQuestion />
+                    <FaQuestion onClick={() => navigate(`${location.pathname}/add`)}/>
                 </Button>
                 <Button className="add-comm" style={{color: 'white'}} >
                     <FaHashtag onClick={() => navigate(`${location.pathname}/tags`)} />
