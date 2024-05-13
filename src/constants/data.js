@@ -293,5 +293,24 @@ const question = [
   }
 ]
 
-export { enseignants, groupe_communication, modules, moreInfoElements, navBarElementsAdmin, navBarElementsLanding, navBarElementsUser, promo, question, questions, tags };
+const quizes = [
+  {
+    id: 0,
+    nom: 'Quiz n=°1',
+  },
+  {
+    id: 1,
+    nom: 'Quiz n=°2',
+  },
+  {
+    id: 3,
+    nom: 'Quiz n=°5',
+  },
+  {
+    id: 4,
+    nom: 'Quiz n=°8',
+  },
+]
+
+export { enseignants, groupe_communication, modules, moreInfoElements, navBarElementsAdmin, navBarElementsLanding, navBarElementsUser, promo, question, questions, quizes, tags };
 

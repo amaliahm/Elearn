@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { navBarElementsUser } from "../../constants/data"
+import { navBarElementsUser, quizes } from "../../constants/data"
 import NavBarComponent from "../../container/NavBarComponent"
 
 
@@ -25,19 +25,19 @@ const Quiz = () => {
                             </div>
                         </div>
                         <div className="service">
-                            <div className="px-lg-5">
-                                <div className="row g-4">                    
+                            {quizes.map((e, i) => (
+
+                                <div key={e.id} className="row g-4">                    
                                     <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
                                         <div className="service-item d-flex flex-column justify-content-center text-center rounded">
                                             
-                                            <h5 className="mb-3">Quiz n=°1</h5>
+                                            <h5 className="mb-3">{e.nom}</h5>
                                             <a className="btn px-3 mt-auto mx-auto" href="">Read More</a>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            ))}
                             
-                        <div className="container px-lg-5">
                             <div className="row g-4">                    
                                 <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
                                     <div className="service-item d-flex flex-column justify-content-center text-center rounded">
@@ -47,9 +47,7 @@ const Quiz = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     
-                        <div className="container px-lg-5">
                             <div className="row g-4">                    
                                 <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
                                     <div className="service-item d-flex flex-column justify-content-center text-center rounded">
@@ -59,7 +57,15 @@ const Quiz = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            <div className="row g-4">                    
+                                <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+                                    <div className="service-item d-flex flex-column justify-content-center text-center rounded">
+                                        
+                                        <h5 className="mb-3">Quiz n=°1</h5>
+                                        <a className="btn px-3 mt-auto mx-auto" href="">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                     

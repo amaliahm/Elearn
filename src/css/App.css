@@ -795,11 +795,14 @@ h6,
 /*** Service ***/
 
 .service {
-  background-color: red;
+  padding: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 10px;
+  width: 100%;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
 }
 .service-item {
   position: relative;
