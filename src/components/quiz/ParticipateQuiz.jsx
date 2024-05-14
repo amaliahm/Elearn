@@ -1,51 +1,60 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { participate_quiz } from '../../constants/data'
 
 const ParticipateQuiz = () => {
-  const [activeQuestion, setActiveQuestion] = useState(0)
-  const [selectedAnswer, setSelectedAnswer] = useState('')
+  const questions = participate_quiz
   const [showResult, setShowResult] = useState(false)
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null)
-  const [done, setDone] = useState(false)
+  const [selectedAnswer, setSelectedAnswer] = useState(new Array(participate_quiz[0].questions.length))
   const [result, setResult] = useState({
     score: 0,
     correctAnswers: 0,
     wrongAnswers: 0,
   })
-
-  const { questions } = participate_quiz
-  const { question, choices, correctAnswer } = questions[activeQuestion]
-
-  const onClickNext = () => {
-    setSelectedAnswerIndex(null)
-    setResult((prev) =>
-      selectedAnswer
-        ? {
-            ...prev,
-            score: prev.score + 5,
-            correctAnswers: prev.correctAnswers + 1,
-          }
-        : { ...prev, wrongAnswers: prev.wrongAnswers + 1 }
-    )
-    if (activeQuestion !== questions.length - 1) {
-      setActiveQuestion((prev) => prev + 1)
-    } else {
-      setActiveQuestion(0)
-      setShowResult(true)
-    }
-  }
-
-  const onAnswerSelected = (answer, index) => {
-    setSelectedAnswerIndex(index)
+  const onAnswerSelected = (answer, index, correctAnswer, questionNumber) => {
+    const tmp = selectedAnswer
+    tmp[questionNumber] = index
+    setSelectedAnswer(tmp)
+    console.log(selectedAnswer)
     if (answer === correctAnswer) {
-      setSelectedAnswer(true)
+      //score + 1
     } else {
-      setSelectedAnswer(false)
+      //score -1
     }
   }
+
+  function calculScore (answer, index, correctAnswer, questionNumber) {
+    onAnswerSelected(answer, index, correctAnswer, questionNumber)
+  }
+  useEffect(() => {
+    
+  }, [selectedAnswer])
+
+  
+
+  // const onClickNext = () => {
+  //   setSelectedAnswerIndex(null)
+  //   setResult((prev) =>
+  //     selectedAnswer
+  //       ? {
+  //           ...prev,
+  //           score: prev.score + 5,
+  //           correctAnswers: prev.correctAnswers + 1,
+  //         }
+  //       : { ...prev, wrongAnswers: prev.wrongAnswers + 1 }
+  //   )
+  //   if (activeQuestion !== questions.length - 1) {
+  //     setActiveQuestion((prev) => prev + 1)
+  //   } else {
+  //     setActiveQuestion(0)
+  //     setShowResult(true)
+  //   }
+  // }
+
+  
 
   const addLeadingZero = (number) => (number > 9 ? number : `0${number}`)
-
+ 
   return (
     <>
         
@@ -53,29 +62,39 @@ const ParticipateQuiz = () => {
     <div className="quiz-container">
       {
         <div>
-          <div>
-            <span className="active-question-no">{addLeadingZero(activeQuestion + 1)}</span>
-            <span className="total-question">/{addLeadingZero(questions.length)}</span>
+          {participate_quiz.map((e, j) => (
+
+          <>
+          {(e.questions).map((q, i) => (
+
+          <>
+          <div className='mt-5'>
+            <span className="font-medium text-3xl text-[#2124B1]">{addLeadingZero(i + 1)}</span>
+            <span className="text-neutral-950 font-medium text-base">/{addLeadingZero(e.questions.length)}</span>
           </div>
-          <h2>{question}</h2>
+          <h2 className='mt-2 font-medium text-xl'>{q.question}</h2>
           <ul>
-            {choices.map((answer, index) => (
+            {q.choices.map((answer, index) => (
               <li
-                onClick={() => onAnswerSelected(answer, index)}
+                onClick={() => calculScore(answer, index, q.correctAnswer, i)}
                 key={answer}
-                className={selectedAnswerIndex === index ? 'selected-answer' : null}>
+                className={selectedAnswer[i] === index ? 'selected-answer' : ''}>
                 {answer}
               </li>
             ))}
           </ul>
+          </>
+          ))}
           <div className="flex-right">
-            <button onClick={onClickNext} disabled={selectedAnswerIndex === null}>
-              {activeQuestion === questions.length - 1 ? 'Finish' : 'Next'}
+            <button onClick={() => {}} disabled={selectedAnswerIndex === null}>
+              Correct
             </button>
           </div>
+          </>
+          ))}
         </div>
       }
-      {done & 
+      {showResult & 
       <div className="result">
           <h3>Result</h3>
           <p>

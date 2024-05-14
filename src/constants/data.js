@@ -312,7 +312,7 @@ const quizes = [
   },
 ]
 
-const participate_quiz = {
+const participate_quiz = [{
   topic: 'Javascript',
   level: 'Beginner',
   totalQuestions: 4,
@@ -344,7 +344,7 @@ const participate_quiz = {
       correctAnswer: 'const',
     },
   ],
-}
+}]
 
 
 export { enseignants, groupe_communication, modules, moreInfoElements, navBarElementsAdmin, navBarElementsLanding, navBarElementsUser, participate_quiz, promo, question, questions, quizes, tags };
