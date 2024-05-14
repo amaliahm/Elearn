@@ -313,8 +313,6 @@ const quizes = [
 ]
 
 const participate_quiz = [{
-  topic: 'Javascript',
-  level: 'Beginner',
   totalQuestions: 4,
   perQuestionScore: 5,
   questions: [
@@ -351,5 +349,48 @@ const participate_quiz = [{
 }]
 
 
-export { enseignants, groupe_communication, modules, moreInfoElements, navBarElementsAdmin, navBarElementsLanding, navBarElementsUser, participate_quiz, promo, question, questions, quizes, tags };
+const old_quiz = [{
+  id: 0,
+  nom: 'Quiz n=°2',
+  totalQuestions: 4,
+  perQuestionScore: 5,
+  questions: [
+    {
+      id: 0,
+      question: 'Which function is used to serialize an object into a JSON string in Javascript?',
+      choices: ['stringify()', 'parse()', 'convert()', 'None of the above', 'I do not know'],
+      type: 'MCQs',
+      correctAnswer: 'stringify()',
+      choosenAnswer: 'parse()',
+    },
+    {
+      id: 1,
+      question: 'Which of the following keywords is used to define a variable in Javascript?',
+      choices: ['var', 'let', 'var and let', 'None of the above', 'I do not know'],
+      type: 'MCQs',
+      correctAnswer: 'var and let',
+      choosenAnswer: 'I do not know()',
+    },
+    {
+      id: 2,
+      question:
+        'Which of the following methods can be used to display data in some form using Javascript?',
+      choices: ['document.write()', 'console.log()', 'window.alert', 'All of the above', 'I do not know'],
+      type: 'MCQs',
+      correctAnswer: 'All of the above',
+      choosenAnswer: 'console.log()',
+    },
+    {
+      id: 3,
+      question: 'How can a datatype be declared to be a constant type?',
+      choices: ['const', 'var', 'let', 'constant', 'I do not know'],
+      type: 'MCQs',
+      correctAnswer: 'const',
+      choosenAnswer: 'const',
+    },
+  ],
+}]
+
+
+export { enseignants, groupe_communication, modules, moreInfoElements, navBarElementsAdmin, navBarElementsLanding, navBarElementsUser, old_quiz, participate_quiz, promo, question, questions, quizes, tags };
 

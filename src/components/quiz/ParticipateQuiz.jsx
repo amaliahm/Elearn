@@ -17,14 +17,14 @@ const ParticipateQuiz = () => {
       setScore((prev) =>
         selectedAnswer[e.id] === e.correctAnswer ? {
           ...prev,
-          score: prev.score + 1,
+          score: prev.score + participate_quiz[0].perQuestionScore,
           correctAnswers: prev.correctAnswers + 1,
         } : selectedAnswer[e.id] === 'I do not know' ? {
           ...prev,
           Oanswer: prev.Oanswer + 1,
         } : {
           ...prev,
-          score: prev.score - 1,
+          score: prev.score - participate_quiz[0].perQuestionScore,
           wrongAnswers: prev.wrongAnswers + 1,
         }
       )
@@ -91,7 +91,7 @@ const ParticipateQuiz = () => {
             <p className='text-base font-medium mt-2'>
               Total Question: 
               <span className='text-[#2124B1] ml-2'>
-                {participate_quiz[0].questions.length}
+                {participate_quiz[0].totalQuestions}
               </span>
             </p>
             <p className='text-base font-medium mt-2'>
