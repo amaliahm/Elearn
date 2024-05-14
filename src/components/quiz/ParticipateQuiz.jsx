@@ -44,61 +44,83 @@ const ParticipateQuiz = () => {
  
   return (
     <>
-                
-    <div className="quiz-container">
-      { !showResult ?
-        <div>
-          {participate_quiz.map((e, j) => (
-
-          <>
-          {(e.questions).map((q, i) => (
-
-          <>
-          <div className='mt-5'>
-            <span className="font-medium text-3xl text-[#2124B1]">{addLeadingZero(i + 1)}</span>
-            <span className="text-neutral-950 font-medium text-base">/{addLeadingZero(e.questions.length)}</span>
-          </div>
-          <h2 className='mt-2 font-medium text-xl'>{q.question}</h2>
-          <ul>
-            {q.choices.map((answer, index) => (
-              <li
-                onClick={() => onAnswerSelected(q.id, answer, q.correctAnswer)}
-                key={index}
-                className={selectedAnswer[q.id] == answer ? 'selected-answer' : ''}>
-                {answer}
-              </li>
+      <div className="quiz-container">
+        {!showResult ?
+          <div>
+            {participate_quiz.map((e, j) => ( 
+              <>
+                {(e.questions).map((q, i) => (
+                  <>
+                    <div className='mt-5'>
+                      <span className="font-medium text-3xl text-[#2124B1]">
+                        {addLeadingZero(i + 1)}
+                      </span>
+                      <span className="text-neutral-950 font-medium text-base">
+                        /{addLeadingZero(e.questions.length)}
+                      </span>
+                    </div>
+                    <h2 className='mt-2 font-medium text-xl'>
+                      {q.question}
+                    </h2>
+                    <ul>
+                      {q.choices.map((answer, index) => (
+                        <li
+                          onClick={() => onAnswerSelected(q.id, answer, q.correctAnswer)}
+                          key={index}
+                          className={selectedAnswer[q.id] == answer ? 'selected-answer' : ''}
+                        >
+                          {answer}
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                ))}
+                <div className="flex justify-end">
+                  <button onClick={onSubmitQuiz} disabled={!allQuestionsAnswered || showResult}>
+                    Correct
+                  </button>
+                </div>
+              </>
             ))}
-          </ul>
-          </>
-          ))}
-          <div className="flex justify-end">
-            <button onClick={onSubmitQuiz} disabled={!allQuestionsAnswered || showResult}>
-              Correct
-            </button>
           </div>
-          </>
-          ))}
-        </div>
-      : 
-      <div className="result">
-          <h3 className='text-2xl tracking-wide text-center'>Result</h3>
-          <p className='text-base font-medium mt-2'>
-            Total Question: <span className='text-[#2124B1]'>{participate_quiz[0].questions.length}</span>
-          </p>
-          <p>
-            Total Score:<span> {score.score}</span>
-          </p>
-          <p>
-            Success:<span> {score.correctAnswers}</span>
-          </p>
-          <p>
-            Wrong Answers:<span> {score.wrongAnswers}</span>
-          </p>
-          <p>
-            I don't know Answers:<span> {score.Oanswer}</span>
-          </p>
-        </div>}
-    </div>
+          : 
+          <div>
+            <h3 className='text-2xl tracking-wide text-center'>
+              Result
+            </h3>
+            <p className='text-base font-medium mt-2'>
+              Total Question: 
+              <span className='text-[#2124B1] ml-2'>
+                {participate_quiz[0].questions.length}
+              </span>
+            </p>
+            <p className='text-base font-medium mt-2'>
+              Total Score:
+              <span className='text-[#2124B1] ml-2'>
+                {score.score}
+              </span>
+            </p>
+            <p className='text-base font-medium mt-2'>
+              Success:
+              <span className='text-[#2124B1] ml-2'>
+                {score.correctAnswers}
+              </span>
+            </p>
+            <p className='text-base font-medium mt-2'>
+              Wrong Answers:
+              <span className='text-[#2124B1] ml-2'>
+                {score.wrongAnswers}
+              </span>
+            </p>
+            <p className='text-base font-medium mt-2'>
+              I don't know Answers:
+              <span className='text-[#2124B1] ml-2'>
+                {score.Oanswer}
+              </span>
+            </p>
+          </div>
+        }
+      </div>
     </>
   )
 }
