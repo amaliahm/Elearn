@@ -1,66 +1,52 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { participate_quiz } from '../../constants/data'
 
 const ParticipateQuiz = () => {
-  const questions = participate_quiz
   const [showResult, setShowResult] = useState(false)
-  const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null)
-  const [selectedAnswer, setSelectedAnswer] = useState(new Array(participate_quiz[0].questions.length))
-  const [result, setResult] = useState({
+  const [selectedAnswer, setSelectedAnswer] = useState({})
+  const [score, setScore] = useState({
     score: 0,
     correctAnswers: 0,
     wrongAnswers: 0,
+    Oanswer: 0,
   })
-  const onAnswerSelected = (answer, index, correctAnswer, questionNumber) => {
-    const tmp = selectedAnswer
-    tmp[questionNumber] = index
-    setSelectedAnswer(tmp)
-    console.log(selectedAnswer)
-    if (answer === correctAnswer) {
-      //score + 1
-    } else {
-      //score -1
-    }
+
+  const onSubmitQuiz = () => {
+    setShowResult(true)
+    participate_quiz[0].questions.map((e, i) => {
+      setScore((prev) =>
+        selectedAnswer[e.id] === e.correctAnswer ? {
+          ...prev,
+          score: prev.score + 1,
+          correctAnswers: prev.correctAnswers + 1,
+        } : selectedAnswer[e.id] === 'I do not know' ? {
+          ...prev,
+          Oanswer: prev.Oanswer + 1,
+        } : {
+          ...prev,
+          score: prev.score - 1,
+          wrongAnswers: prev.wrongAnswers + 1,
+        }
+      )
+    })
   }
 
-  function calculScore (answer, index, correctAnswer, questionNumber) {
-    onAnswerSelected(answer, index, correctAnswer, questionNumber)
+  const onAnswerSelected = ( id, answer) => {
+    setSelectedAnswer({
+      ...selectedAnswer,
+      [id]: answer
+    })
   }
-  useEffect(() => {
-    
-  }, [selectedAnswer])
 
+  const allQuestionsAnswered = participate_quiz[0].questions.length === Object.keys(selectedAnswer).length;  
   
-
-  // const onClickNext = () => {
-  //   setSelectedAnswerIndex(null)
-  //   setResult((prev) =>
-  //     selectedAnswer
-  //       ? {
-  //           ...prev,
-  //           score: prev.score + 5,
-  //           correctAnswers: prev.correctAnswers + 1,
-  //         }
-  //       : { ...prev, wrongAnswers: prev.wrongAnswers + 1 }
-  //   )
-  //   if (activeQuestion !== questions.length - 1) {
-  //     setActiveQuestion((prev) => prev + 1)
-  //   } else {
-  //     setActiveQuestion(0)
-  //     setShowResult(true)
-  //   }
-  // }
-
-  
-
   const addLeadingZero = (number) => (number > 9 ? number : `0${number}`)
  
   return (
     <>
-        
                 
     <div className="quiz-container">
-      {
+      { !showResult ?
         <div>
           {participate_quiz.map((e, j) => (
 
@@ -76,38 +62,40 @@ const ParticipateQuiz = () => {
           <ul>
             {q.choices.map((answer, index) => (
               <li
-                onClick={() => calculScore(answer, index, q.correctAnswer, i)}
-                key={answer}
-                className={selectedAnswer[i] === index ? 'selected-answer' : ''}>
+                onClick={() => onAnswerSelected(q.id, answer, q.correctAnswer)}
+                key={index}
+                className={selectedAnswer[q.id] == answer ? 'selected-answer' : ''}>
                 {answer}
               </li>
             ))}
           </ul>
           </>
           ))}
-          <div className="flex-right">
-            <button onClick={() => {}} disabled={selectedAnswerIndex === null}>
+          <div className="flex justify-end">
+            <button onClick={onSubmitQuiz} disabled={!allQuestionsAnswered || showResult}>
               Correct
             </button>
           </div>
           </>
           ))}
         </div>
-      }
-      {showResult & 
+      : 
       <div className="result">
-          <h3>Result</h3>
-          <p>
-            Total Question: <span>{questions.length}</span>
+          <h3 className='text-2xl tracking-wide text-center'>Result</h3>
+          <p className='text-base font-medium mt-2'>
+            Total Question: <span className='text-[#2124B1]'>{participate_quiz[0].questions.length}</span>
           </p>
           <p>
-            Total Score:<span> {result.score}</span>
+            Total Score:<span> {score.score}</span>
           </p>
           <p>
-            Correct Answers:<span> {result.correctAnswers}</span>
+            Success:<span> {score.correctAnswers}</span>
           </p>
           <p>
-            Wrong Answers:<span> {result.wrongAnswers}</span>
+            Wrong Answers:<span> {score.wrongAnswers}</span>
+          </p>
+          <p>
+            I don't know Answers:<span> {score.Oanswer}</span>
           </p>
         </div>}
     </div>
