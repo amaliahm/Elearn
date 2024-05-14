@@ -1376,11 +1376,16 @@ h2.accordion-header button {
 
 .quiz-container {
   max-width: 500px;
-  min-width: 250px;
-  background: #ffffff;
+  min-width: 300px;
+  background: #DDDDDD;
   border-radius: 4px;
   margin-top: 100px;
   padding: 30px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .quiz-container .active-question-no {

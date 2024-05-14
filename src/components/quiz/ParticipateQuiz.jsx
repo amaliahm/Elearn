@@ -6,6 +6,7 @@ const ParticipateQuiz = () => {
   const [selectedAnswer, setSelectedAnswer] = useState('')
   const [showResult, setShowResult] = useState(false)
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null)
+  const [done, setDone] = useState(false)
   const [result, setResult] = useState({
     score: 0,
     correctAnswers: 0,
@@ -50,7 +51,7 @@ const ParticipateQuiz = () => {
         
                 
     <div className="quiz-container">
-      {!showResult ? (
+      {
         <div>
           <div>
             <span className="active-question-no">{addLeadingZero(activeQuestion + 1)}</span>
@@ -73,8 +74,9 @@ const ParticipateQuiz = () => {
             </button>
           </div>
         </div>
-      ) : (
-        <div className="result">
+      }
+      {done & 
+      <div className="result">
           <h3>Result</h3>
           <p>
             Total Question: <span>{questions.length}</span>
@@ -88,8 +90,7 @@ const ParticipateQuiz = () => {
           <p>
             Wrong Answers:<span> {result.wrongAnswers}</span>
           </p>
-        </div>
-      )}
+        </div>}
     </div>
     </>
   )
