@@ -354,6 +354,9 @@ const old_quiz = [{
   nom: 'Quiz n=°2',
   totalQuestions: 4,
   perQuestionScore: 5,
+  date: '2024-05-08',
+  Duration: 15,
+  time: 90,
   questions: [
     {
       id: 0,
@@ -369,7 +372,7 @@ const old_quiz = [{
       choices: ['var', 'let', 'var and let', 'None of the above', 'I do not know'],
       type: 'MCQs',
       correctAnswer: 'var and let',
-      choosenAnswer: 'I do not know()',
+      choosenAnswer: 'I do not know',
     },
     {
       id: 2,
