@@ -1,11 +1,14 @@
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { navBarElementsUser, quizes } from "../../constants/data"
 import NavBarComponent from "../../container/NavBarComponent"
+import ModalUpdate from "./ModalStartQuiz"
 
 
 const Quiz = () => {
 
     const navigate = useNavigate()
+    const [update, setUpdate] = useState(false)
 
     return (
         <>
@@ -31,13 +34,17 @@ const Quiz = () => {
                                         <div className="service-item d-flex flex-column justify-content-center text-center rounded">
                                             <h5 className="mb-3">{e.nom}</h5>
                                             <a className="btn px-3 mt-auto mx-auto" onClick={() => {
-                                                e.id === 0 ? navigate(`/home/user/assessment/new/${e.id}`) : navigate(`/home/user/assessment/old/${e.id}`)
+                                                e.id === 0 ? setUpdate(true) : navigate(`/home/user/assessment/old/${e.id}`)
                                             }}>Read More</a>
                                         </div>
                                     </div>
                                 </div>
                             ))}
                         </div>
+                        {update && <ModalUpdate
+                          setShowModal={setUpdate}
+                          showModal={update}
+                        />}
                     </div>
                 </div>
             </main>
