@@ -1,5 +1,7 @@
-import { useState } from 'react'
-import { participate_quiz } from '../../constants/data'
+import { useState } from 'react';
+import { participate_quiz } from '../../constants/data';
+
+import Typography from '@mui/material/Typography';
 
 const ParticipateQuiz = () => {
   const [showResult, setShowResult] = useState(false)
@@ -45,13 +47,16 @@ const ParticipateQuiz = () => {
   return (
     <>
       <div className="quiz-container">
+        {!showResult && <div className="mt-0 mr-0 mb-0 ml-auto font-semibold">
+          15:27
+        </div>}
         {!showResult ?
           <div>
             {participate_quiz.map((e, j) => ( 
               <>
                 {(e.questions).map((q, i) => (
                   <>
-                    <div className='mt-5'>
+                    <div className='mt-0'>
                       <span className="font-medium text-3xl text-[#2124B1]">
                         {addLeadingZero(i + 1)}
                       </span>
@@ -73,11 +78,12 @@ const ParticipateQuiz = () => {
                         </li>
                       ))}
                     </ul>
+                    <hr />
                   </>
                 ))}
                 <div className="flex justify-end">
                   <button onClick={onSubmitQuiz} disabled={!allQuestionsAnswered || showResult}>
-                    Correct
+                    Validate
                   </button>
                 </div>
               </>
@@ -85,9 +91,15 @@ const ParticipateQuiz = () => {
           </div>
           : 
           <div>
-            <h3 className='text-2xl tracking-wide text-center'>
+            <Typography 
+              className='text-2xl tracking-wide text-center' 
+              component="h2" 
+              id="modal-modal-title" 
+              variant="h5" 
+              sx={{mb: '20px'}}
+            >
               Result
-            </h3>
+            </Typography>
             <p className='text-base font-medium mt-2'>
               Total Question: 
               <span className='text-[#2124B1] ml-2'>
