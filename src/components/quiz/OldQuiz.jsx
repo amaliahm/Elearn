@@ -44,7 +44,7 @@ const OldQuiz = () => {
                                 </h1>
                             </div>
                         </div>
-                        <div className="w-[99%] bg-[#DDDDDD] py-5 px-3">
+                        <div className="w-[99%] bg-[#DDDDDD] py-5 px-3 rounded-2xl ">
                             <p className="text-base font-medium mt-2">
                                 <span className="mr-2 text-black">
                                     Date:

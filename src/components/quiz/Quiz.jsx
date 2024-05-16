@@ -10,7 +10,7 @@ const Quiz = () => {
     return (
         <>
           <div className='container-xxl bg-white p-0'>
-            <NavBarComponent elements={navBarElementsUser} element={2}/>
+            <NavBarComponent elements={navBarElementsUser} element={1}/>
             <main>
                 <div className="container-xxl p-0 mb-5">
                     <div className="container-xxl py-5">
