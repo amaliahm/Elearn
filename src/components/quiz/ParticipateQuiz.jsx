@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { participate_quiz } from '../../constants/data';
-
-import Typography from '@mui/material/Typography';
+import ModalResult from './ModalResult';
 
 const ParticipateQuiz = () => {
   const [showResult, setShowResult] = useState(false)
@@ -47,10 +46,9 @@ const ParticipateQuiz = () => {
   return (
     <>
       <div className="quiz-container">
-        {!showResult && <div className="mt-0 mr-0 mb-0 ml-auto font-semibold">
+        <div className="mt-0 mr-0 mb-0 ml-auto font-semibold">
           15:27
-        </div>}
-        {!showResult ?
+        </div>
           <div>
             {participate_quiz.map((e, j) => ( 
               <>
@@ -89,8 +87,8 @@ const ParticipateQuiz = () => {
               </>
             ))}
           </div>
-          : 
-          <div>
+          
+          {/* <div>
             <Typography 
               className='text-2xl tracking-wide text-center' 
               component="h2" 
@@ -130,8 +128,13 @@ const ParticipateQuiz = () => {
                 {score.Oanswer}
               </span>
             </p>
-          </div>
-        }
+          </div> */}
+          {showResult && <ModalResult
+                          setShowModal={setShowResult}
+                          showModal={showResult}
+                          score={score}
+                          totalQuestion={participate_quiz[0].totalQuestions}
+                        />}
       </div>
     </>
   )
