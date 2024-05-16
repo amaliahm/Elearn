@@ -11,22 +11,25 @@ const OldQuiz = () => {
         Oanswer: 0,
     })
 
-    old_quiz[0].questions.map((e, i) => {
-        // setScore((prev) => 
-        //     e.choosenAnswer === 'I do not know' ? {
-        //     ...prev,
-        //     Oanswer: prev.Oanswer + 1
-        // } 
-        //: e.choosenAnswer === e.correctAnswer ? {
-        //     ...prev,
-        //     score: prev.score + old_quiz[0].perQuestionScore,
-        //     correctAnswers: prev.correctAnswers + 1
-        // } : {
-        //     ...prev,
-        //     score: prev.score - old_quiz[0].perQuestionScore,
-        //     wrongAnswers: prev.wrongAnswers + 1
-        // })
-    })
+    function getScore () {
+        old_quiz[0].questions.map((e, i) => {
+            setScore((prev) =>
+                e.choosenAnswer === e.correctAnswer ? {
+                  ...prev,
+                  score: prev.score + old_quiz[0].perQuestionScore,
+                  correctAnswers: prev.correctAnswers + 1,
+                } : e.choosenAnswer === 'I do not know' ? {
+                  ...prev,
+                  Oanswer: prev.Oanswer + 1,
+                } : {
+                  ...prev,
+                  score: prev.score - old_quiz[0].perQuestionScore,
+                  wrongAnswers: prev.wrongAnswers + 1,
+                }
+              )
+        })
+        console.log(score)
+    }
 
     return (
         <>
@@ -44,7 +47,7 @@ const OldQuiz = () => {
                                 </h1>
                             </div>
                         </div>
-                        <div className="w-[99%] bg-[#DDDDDD] py-5 px-3 rounded-2xl ">
+                        <div className="old-question">
                             <p className="text-base font-medium mt-2">
                                 <span className="mr-2 text-black">
                                     Date:
@@ -81,35 +84,39 @@ const OldQuiz = () => {
                                 </span>
                                 {score.wrongAnswers}
                             </p>
-                            <h3 className="text-2xl tracking-wide mt-5 mb-2">
+                            <h3 className="text-2xl tracking-wide my-5">
                                 Responses:
                             </h3>
-                            {old_quiz[0].questions.map((question, index) => (
-                                <div key={question.id}>
-                                    <p className="text-base font-medium my-3 text-black">
-                                        {index}.{question.question}
-                                    </p>
-                                    {question.choices.map((choice, i) => (
-                                        <p 
-                                          className={
-                                            `text-base font-medium mt-1 
-                                            ${question.choosenAnswer === choice && choice === question.correctAnswer && 'text-emerald-600'}
-                                            ${question.choosenAnswer === choice && choice !== question.correctAnswer && 'text-rose-600'}
-                                            ${question.choosenAnswer !== choice && choice == question.correctAnswer && 'text-green-700'}
-                                          `}
-                                          key={i}
-                                        >
-                                            {choice}
-                                        </p>
-                                    ))}
-                                    <p className="text-base font-medium ml-5 mt-3 text-black">
-                                        Score:
-                                        <span className="text-base font-medium ml-2 text-[#2124B1]">
-                                            {question.choosenAnswer === 'I do not know' ? '0' : `${question.choosenAnswer === question.correctAnswer ? '' : '-'} ${old_quiz[0].perQuestionScore}`}
-                                        </span>
-                                    </p>
-                                </div>
-                            ))}
+                            
+                            {old_quiz.map((e, j) => ( 
+              <>
+                {(e.questions).map((q, i) => (
+                  <>
+                   
+                    <h2 className='mt-2 font-medium text-xl ml-2'>
+                      {q.question}
+                    </h2>
+                    <ul>
+                      {q.choices.map((answer, index) => (
+                        <li
+                          key={index}
+                          className={` 
+                          ${((q.choosenAnswer === answer && answer === q.correctAnswer || (answer === q.correctAnswer))) && 'correct-answer'}
+                          ${q.choosenAnswer === answer && answer !== q.correctAnswer && 'wrong-answer'}
+                        `}
+                        >
+                          {answer}
+                        </li>
+                      ))}
+                      <li className='selected-answer'>
+                        Score: {q.choosenAnswer === 'I do not know' ? '0' : `${q.choosenAnswer === q.correctAnswer ? '' : '-'} ${old_quiz[0].perQuestionScore}`}
+                      </li>
+                    </ul>
+                    <hr />
+                  </>
+                ))}
+              </>
+            ))}
 
                         </div>
                     </div>

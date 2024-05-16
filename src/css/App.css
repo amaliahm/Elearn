@@ -1372,8 +1372,6 @@ h2.accordion-header button {
   cursor: pointer;
 }
 
-
-
 .quiz-container {
   width: 95%;
   min-width: 300px;
@@ -1388,12 +1386,21 @@ h2.accordion-header button {
   gap: 50px;
 }
 
-.quiz-container ul {
+.old-question {
+  width: 99%;
+  background-color: #DDDDDD;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.quiz-container ul,
+.old-question ul {
   margin-top: 20px;
   margin-left: -40px;
 }
 
-.quiz-container ul li {
+.quiz-container ul li,
+.old-question ul li {
   text-decoration: none;
   list-style: none;
   color: #2d264b;
@@ -1407,9 +1414,24 @@ h2.accordion-header button {
   width: 80%;
 }
 
-.quiz-container ul .selected-answer {
+.quiz-container ul .selected-answer,
+.old-question ul .selected-answer {
   background: rgba(33, 36, 177, 0.2);
   border: 1px solid var(--main-color);
+}
+
+.old-question ul .selected-answer {
+  width: 120px;
+}
+
+.old-question ul .correct-answer {
+  background: rgba(5, 150, 105, 0.2);
+  border: 1px solid rgb(5, 150, 105);
+}
+
+.old-question ul .wrong-answer  {
+  background: rgba(255, 29, 72, 0.2);
+  border: 1px solid rgb(255, 29, 72);
 }
 
 .quiz-container button {
