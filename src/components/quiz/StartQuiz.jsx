@@ -1,11 +1,8 @@
-import { useNavigate } from "react-router-dom"
 import ParticipateQuiz from "./ParticipateQuiz"
 
 
 const StartQuiz = () => {
 
-    const navigate = useNavigate()
-    
     return (
         <>
           <div className='container-xxl bg-white p-0'>

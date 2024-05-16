@@ -87,54 +87,12 @@ const ParticipateQuiz = () => {
               </>
             ))}
           </div>
-          
-          {/* <div>
-            <Typography 
-              className='text-2xl tracking-wide text-center' 
-              component="h2" 
-              id="modal-modal-title" 
-              variant="h5" 
-              sx={{mb: '20px'}}
-            >
-              Result
-            </Typography>
-            <p className='text-base font-medium mt-2'>
-              Total Question: 
-              <span className='text-[#2124B1] ml-2'>
-                {participate_quiz[0].totalQuestions}
-              </span>
-            </p>
-            <p className='text-base font-medium mt-2'>
-              Total Score:
-              <span className='text-[#2124B1] ml-2'>
-                {score.score}
-              </span>
-            </p>
-            <p className='text-base font-medium mt-2'>
-              Success:
-              <span className='text-[#2124B1] ml-2'>
-                {score.correctAnswers}
-              </span>
-            </p>
-            <p className='text-base font-medium mt-2'>
-              Wrong Answers:
-              <span className='text-[#2124B1] ml-2'>
-                {score.wrongAnswers}
-              </span>
-            </p>
-            <p className='text-base font-medium mt-2'>
-              I don't know Answers:
-              <span className='text-[#2124B1] ml-2'>
-                {score.Oanswer}
-              </span>
-            </p>
-          </div> */}
           {showResult && <ModalResult
-                          setShowModal={setShowResult}
-                          showModal={showResult}
-                          score={score}
-                          totalQuestion={participate_quiz[0].totalQuestions}
-                        />}
+            setShowModal={setShowResult}
+            showModal={showResult}
+            score={score}
+            totalQuestion={participate_quiz[0].totalQuestions}
+          />}
       </div>
     </>
   )
