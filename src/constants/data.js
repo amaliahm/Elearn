@@ -356,7 +356,11 @@ const old_quiz = [{
   perQuestionScore: 5,
   date: '2024-05-08',
   Duration: 15,
-  time: 90,
+  time: 20,
+  score: -5,
+  correctAnswers: 1,
+  wrongAnswers: 2,
+  Oanswer: 1,
   questions: [
     {
       id: 0,

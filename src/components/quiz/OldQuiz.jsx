@@ -1,36 +1,14 @@
-import { useState } from "react"
-import { old_quiz } from "../../constants/data"
+import { CircularProgressbar } from 'react-circular-progressbar';
+import { old_quiz } from "../../constants/data";
 
 
 const OldQuiz = () => {
-    
-    const [score, setScore] = useState({
-        score: 0,
-        correctAnswers: 0,
-        wrongAnswers: 0,
-        Oanswer: 0,
-    })
 
-    function getScore () {
-        old_quiz[0].questions.map((e, i) => {
-            setScore((prev) =>
-                e.choosenAnswer === e.correctAnswer ? {
-                  ...prev,
-                  score: prev.score + old_quiz[0].perQuestionScore,
-                  correctAnswers: prev.correctAnswers + 1,
-                } : e.choosenAnswer === 'I do not know' ? {
-                  ...prev,
-                  Oanswer: prev.Oanswer + 1,
-                } : {
-                  ...prev,
-                  score: prev.score - old_quiz[0].perQuestionScore,
-                  wrongAnswers: prev.wrongAnswers + 1,
-                }
-              )
-        })
-        console.log(score)
-    }
-
+  const percentage = 66;
+  const correctAnswers = ( old_quiz[0].correctAnswers / old_quiz[0].totalQuestions ) * 100;
+  const wrongAnswers = ( old_quiz[0].wrongAnswers / old_quiz[0].totalQuestions ) * 100;
+  const Oanswer = ( old_quiz[0].Oanswer / old_quiz[0].totalQuestions ) * 100;
+   
     return (
         <>
           <div className='container-xxl bg-white p-0'>
@@ -48,43 +26,32 @@ const OldQuiz = () => {
                             </div>
                         </div>
                         <div className="old-question">
-                            <p className="text-base font-medium mt-2">
+                          <div className='flex row justify-between align-center flex-wrap px-3 mb-3'>
+                            <p className="text-base font-medium p-3 rounded-xl selected-answer" style={{width: 'fit-content', height: 'fit-content'}}>
                                 <span className="mr-2 text-black">
                                     Date:
                                 </span>
                                 {old_quiz[0].date}
                             </p>
-                            <p className="text-base font-medium mt-2">
+                            <p className="text-base font-medium p-3 rounded-xl selected-answer" style={{width: 'fit-content', height: 'fit-content'}}>
                                 <span className="mr-2 text-black">
                                     Duration:
                                 </span>
                                 {old_quiz[0].Duration}/{old_quiz[0].time} min
                             </p>
-                            <p className="text-base font-medium mt-2">
+                            <p className="text-base font-medium p-3 rounded-xl selected-answer" style={{width: 'fit-content', height: 'fit-content'}}>
                                 <span className="mr-2 text-black">
                                     Score:
                                 </span>
-                                {score.score}/{old_quiz[0].perQuestionScore * old_quiz[0].totalQuestions}
+                                {old_quiz[0].score}/{old_quiz[0].perQuestionScore * old_quiz[0].totalQuestions}
                             </p>
-                            <p className="text-base font-medium mt-7">
-                                <span className="mr-2 text-black">
-                                    ## "I don't know":
-                                </span>
-                                {score.Oanswer}
-                            </p>
-                            <p className="text-base font-medium mt-2">
-                                <span className="mr-2 text-black">
-                                    ## Success:
-                                </span>
-                                {score.correctAnswers}
-                            </p>
-                            <p className="text-base font-medium mt-2">
-                                <span className="mr-2 text-black">
-                                    ## Fail:
-                                </span>
-                                {score.wrongAnswers}
-                            </p>
-                            <h3 className="text-2xl tracking-wide my-5">
+                          </div>
+                          <div className="flex row justify-evenly flex-wrap p-3 w-[80%]" style={{ margin: '0 auto' }}>
+                            <CircularProgressbar value={correctAnswers} text={`S: ${old_quiz[0].correctAnswers}/${old_quiz[0].totalQuestions}`} className='success-progress' />
+                            <CircularProgressbar value={wrongAnswers} text={`F: ${old_quiz[0].wrongAnswers}/${old_quiz[0].totalQuestions}`} className='wrong-progress'/>
+                            <CircularProgressbar value={Oanswer} text={`O: ${old_quiz[0].Oanswer}/${old_quiz[0].totalQuestions}`} />
+                          </div>
+                            <h3 className="text-2xl tracking-wide mt-2 mb-5">
                                 Responses:
                             </h3>
                             
@@ -93,7 +60,7 @@ const OldQuiz = () => {
                 {(e.questions).map((q, i) => (
                   <>
                    
-                    <h2 className='mt-2 font-medium text-xl ml-2'>
+                    <h2 className='mt-2 font-medium text-xl'>
                       {q.question}
                     </h2>
                     <ul>

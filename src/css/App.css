@@ -1415,7 +1415,8 @@ h2.accordion-header button {
 }
 
 .quiz-container ul .selected-answer,
-.old-question ul .selected-answer {
+.old-question ul .selected-answer,
+.old-question p.selected-answer {
   background: rgba(33, 36, 177, 0.2);
   border: 1px solid var(--main-color);
 }
@@ -1450,4 +1451,56 @@ h2.accordion-header button {
   background: #e7e8e9;
   color: #9fa3a9;
   cursor: not-allowed;
+}
+
+ .CircularProgressbar {
+  width: 150px;
+  margin: 0 0 20px;
+  vertical-align: middle;
+}
+
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: var(--main-color);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease 0s;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+  stroke: #d6d6d6;
+  stroke-linecap: round;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: var(--color-black);
+  font-size: 12px;
+  text-wrap: wrap;
+  text-anchor: middle;
+}
+
+.CircularProgressbar .CircularProgressbar-background {
+  fill: #d6d6d6;
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-background {
+  fill: var(--main-color);
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-text {
+  fill: var(--white);
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-path {
+  stroke: var(--white);
+}
+
+.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-trail {
+  stroke: transparent;
+}
+
+.CircularProgressbar.success-progress .CircularProgressbar-path {
+  stroke: green;
+}
+
+.CircularProgressbar.wrong-progress .CircularProgressbar-path {
+  stroke: red;
 }
