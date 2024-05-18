@@ -1416,7 +1416,8 @@ h2.accordion-header button {
 
 .quiz-container ul .selected-answer,
 .old-question ul .selected-answer,
-.old-question p.selected-answer {
+.old-question p.selected-answer,
+.selected-answer {
   background: rgba(33, 36, 177, 0.2);
   border: 1px solid var(--main-color);
 }
