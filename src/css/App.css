@@ -1504,3 +1504,41 @@ h2.accordion-header button {
 .CircularProgressbar.wrong-progress .CircularProgressbar-path {
   stroke: red;
 }
+
+/* Error page css */
+
+.main-error {
+  --tw-bg-opacity: 1;
+  background-color: rgb(13 17 23 / var(--tw-bg-opacity));
+  height: 100vh;
+  z-index: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+  min-height: calc(100vh - 100px);
+}
+
+.main-error > .section-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.animated-bg-error {
+  background-image: url(../assets/images/animated_bg_error.svg);
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 400px) {
+  .main-error {
+    padding: 2rem;
+  }
+}

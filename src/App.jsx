@@ -15,6 +15,7 @@ import LandingPageComponent from './components/landing page/LandingPage.jsx';
 import OldQuiz from './components/quiz/OldQuiz.jsx';
 import Quiz from './components/quiz/Quiz.jsx';
 import StartQuiz from './components/quiz/StartQuiz.jsx';
+import ErrorPage from './container/ErrorPage.jsx';
 import HomeComponentAdmin from './container/HomeAdmin.jsx';
 import HomeComponentUser from './container/HomeUser.jsx';
 import ProfileComponent from './container/Profile.jsx';
@@ -58,6 +59,7 @@ function App() {
           {/* <Route path='/api/auth/password/reset/confirm/:token' element={<PasswordReset />} /> */}
           <Route path='/auth/password/reset/confirm' element={<PasswordReset />} />
           <Route path='/profile' element={<ProfileComponent />} />
+          <Route path='*' element={<ErrorPage />} />
         </Routes>
       </Router>}
     </div>
