@@ -1,22 +1,9 @@
-import React, { useState } from 'react'
-import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
-import { FaReply } from 'react-icons/fa'
+import React, { useState } from 'react';
+import { FaArrowDown, FaArrowUp, FaReply } from "react-icons/fa";
 
 const ComntBody = ({comment}) => {
   const [target, setTarget] = useState(comment)
-  console.log(target)
-
-
-  
-
   const [reply, setReply] = useState(false)
-  
-
-  
-
-  
-  
-  
 
   const timePasses = ()=>{
     let now = new Date()
@@ -28,17 +15,15 @@ const ComntBody = ({comment}) => {
     let days = Math.floor(hours/24)
     return days
   }
-
-  
   
   return (
     <>
     <div className='flex gap-4 rounded-lg bg-[#FFFFFF] w-[95%] h-full p-4 relative min-h-[200px] '>
       <div className='flex flex-col bg-[#F5F6FA] rounded-lg items-center p-2 h-fit mb-auto gap-2'>
-        <i className='text-[#5358B6] opacity-40 hover:cursor-pointer hover:opacity-100' onClick={()=> {}}><AiOutlinePlus size={15}/></i>
+        <i className='text-red-500 opacity-60 hover:cursor-pointer hover:opacity-100' onClick={()=> {}}><FaArrowUp /></i>
         <p>{target.agree}</p>
         <p>{target.disagree}</p>
-        <i className='text-[#5358B6] opacity-40 hover:cursor-pointer hover:opacity-100' onClick={()=>{}}><AiOutlineMinus size={15}/></i>
+        <i className='text-emerald-600 opacity-60 hover:cursor-pointer hover:opacity-100' onClick={()=>{}}><FaArrowDown /></i>
       </div>
       <div className='w-full'>
         <div className='flex gap-2 w-full items-center'>
