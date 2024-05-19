@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { participate_quiz } from '../../constants/data';
 import ModalResult from './ModalResult';
+import TimeComponent from './TimeComponent';
 
 const ParticipateQuiz = () => {
   const [showResult, setShowResult] = useState(false)
@@ -47,7 +48,7 @@ const ParticipateQuiz = () => {
     <>
       <div className="quiz-container">
         <div className="mt-0 mr-0 mb-0 ml-auto font-semibold">
-          15:27
+          <TimeComponent />
         </div>
           <div>
             {participate_quiz.map((e, j) => ( 
