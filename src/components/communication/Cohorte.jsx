@@ -1,4 +1,6 @@
 import { Button } from "@mui/material";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Accordion } from 'react-bootstrap';
 import { BsArrowRightShort } from 'react-icons/bs';
 import { FaHashtag, FaQuestion } from "react-icons/fa";
@@ -9,7 +11,18 @@ const Cohorte = () => {
 
     const navigate = useNavigate()
     const location = useLocation()
-    console.log(location.pathname)
+    const [message, setMessage] = useState('');
+
+    useEffect(() => {
+        axios.get('http://localhost:8000/api/hello-world/')
+          .then(response => {
+            setMessage(response.data.message);
+            console.log(message)
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      }, []);
     
     return (
         <>
