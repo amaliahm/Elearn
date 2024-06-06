@@ -155,7 +155,7 @@ const enseignants = [
     id_enseignant: 5,
     nom: 'Mr KECHAR Mohamed',
     email: 'm.kechar@esi-sba.dz',
-    telephone: '0***',
+    telephone: '0555555555',
     statut: 'Maître de conférences A',
     modules: ["Théorie de langages et Compilation", ' Administration Bases De Données'],
     image: kechar_mohamed
@@ -164,7 +164,7 @@ const enseignants = [
     id_enseignant: 0,
     nom: 'Mr ACED Mohammed Reda',
     email: 'm.aced@esi-sba.dz',
-    telephone: '0***',
+    telephone: '0555555555',
     statut: 'Maître Assistant A',
     modules: ['Electronique Fondamentale 1', 'Electronique 2'],
     image: ACED_Mohammed_Reda
@@ -173,7 +173,7 @@ const enseignants = [
     id_enseignant: 5,
     nom: 'Mr BENSLIMANE Sidi Mohammed',
     email: 's.benslimane@esi-sba.dz',
-    telephone: '0***',
+    telephone: '0555555555',
     statut: 'Professeur',
     modules: ["Introduction au Génie Logiciel 2023-2024", 'Langages et Outils du Web 2016-2024', 'XML et les Services Web 2010-2015', 'Introduction aux systèmes d’information 2001-2011'],
     image: benslimane
@@ -182,7 +182,7 @@ const enseignants = [
     id_enseignant: 1,
     nom: 'Mr AZZA Mohammed',
     email: 'm.azza@esi-sba.dz',
-    telephone: '0***',
+    telephone: '0555555555',
     statut: 'Maître de conférences B',
     modules: ["Introduction au Système d'exploitation 1", 'Réseaux 1', 'Réseaux 2'],
     image: azza_mohammed
@@ -191,7 +191,7 @@ const enseignants = [
     id_enseignant: 6,
     nom: 'Mr MALKI Mimoun',
     email: 'm.malki@esi-sba.dz',
-    telephone: '0***',
+    telephone: '0555555555',
     statut: 'Professeur',
     modules: ["Bases de données", 'Ontologie et Web sémantique', 'Méthodes de conception avancées', 'Méthodologie de la recherche scientifique', 'Introduction aux systèmes d’information', 'Analyse et conception de systèmes d\’information', 'Génie logiciel'],
     image: mimoun_malki
@@ -200,7 +200,7 @@ const enseignants = [
     id_enseignant: 2,
     nom: 'Mrs ELOUALI Nadia',
     email: 'n.elouali@esi-sba.dz',
-    telephone: '0***',
+    telephone: '0555555555',
     statut: 'Maître de conférences A',
     modules: ["Interaction Homme-Machine", 'Développement Mobile', 'Algorithmique et structures de données dynamiques (ESI-SBA - 2015-2017)', 'Algorithmique et structures de données statiques (ESI-SBA -2015-2017)', 'Génie Logiciel (ESI-SBA - 2017-2018)'],
     image: NadiaElouali
@@ -209,7 +209,7 @@ const enseignants = [
     id_enseignant: 3,
     nom: 'Mr AMAR BENSABER Djamel',
     email: 'd.amarbensaber@esi-sba.dz',
-    telephone: '0***',
+    telephone: '0555555555',
     statut: 'Professeur',
     modules: ["Gestion de project", 'Introduction au Génie Logiciel'],
     image: amar_bensaber_djamel
@@ -218,7 +218,7 @@ const enseignants = [
     id_enseignant: 4,
     nom: 'Mr BENDAOUD Fayssal',
     email: 'f.bendaoud@esi-sba.dz',
-    telephone: '0***',
+    telephone: '0555555555',
     statut: 'Maître de conférences A',
     modules: ["Introduction à la sécurité informatique", 'Internet des objets ', '-Ingénierie de connaissances', 'Systèmes répartis', 'Sécurité des systèmes et réseaux (2SC ISI)'],
     image: bendaoud_fayssal
@@ -227,7 +227,7 @@ const enseignants = [
     id_enseignant: 7,
     nom: 'Mr SERHANE Oussama',
     email: 'o.serhane@esi-sba.dz',
-    telephone: '0***',
+    telephone: '0555555555',
     statut: 'Maître de conférences B',
     modules: ["Programmation orientée objet"],
     image: serhane_oussama
@@ -236,7 +236,7 @@ const enseignants = [
     id_enseignant: 8,
     nom: 'Mr SI MOHAMED Nasreddine',
     email: 'n.simohamed@esi-sba.dz',
-    telephone: '0***',
+    telephone: '0555555555',
     statut: 'Maître de conférences A',
     modules: ["Algorithmique et structures de données Statiques", "Algorithmique et structures de données Dynamiques", "Architecture des ordinateurs", "Programmation Logique (Prolog)", "Systèmes experts", "Intelligence Artificielle", "Système d’Information Géographique (SIG)"],
     image: si_mohamed_nasreddine

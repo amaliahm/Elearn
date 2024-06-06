@@ -1,10 +1,13 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
 import { enseignants } from "../../constants/data";
+import ModalEnseignant from "./ModalEnseignant";
 
 const EnseignantsComponent = () => {
 
   const scrollRef = useRef(null);
+  const [showModal, setShowModal] = useState(false)
+  const [details, setDetails] = useState()
 
   const scroll = (direction) => {
     const { current } = scrollRef;
@@ -38,7 +41,15 @@ const EnseignantsComponent = () => {
                     <div className="team-item">
                       <div className="d-flex flex__center">
                         <div className="flex-shrink-0 d-flex flex-column align-items-center mt-4 pt-5 w-20"></div>
-                        <img className="img-fluid rounded w-100" src={enseignants[e].image} alt="professor_image" />
+                        <img 
+                          className="img-fluid rounded w-100" 
+                          src={enseignants[e].image} 
+                          alt="professor_image" 
+                          onClick={() => { 
+                            setShowModal(true)
+                            setDetails(enseignants[e])
+                          }}
+                        />
                       </div>
                       <div className="px-4 py-3 text-wrap">
                         <h5 className="fw-bold m-0">
@@ -52,6 +63,11 @@ const EnseignantsComponent = () => {
                   </div>
                 ))}
               </div>
+              {showModal && <ModalEnseignant
+                setShowModal={setShowModal}
+                showModal={showModal} 
+                details={details}
+              />}
               <div className="app__professors-images_arrows">
                 <BsArrowLeftShort className="professors__arrow-icon" onClick={() => scroll('left')}/>
                 <BsArrowRightShort className="professors__arrow-icon" onClick={() => scroll('right')} />
