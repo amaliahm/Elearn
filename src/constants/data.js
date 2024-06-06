@@ -31,38 +31,42 @@ const navBarElementsLanding = [
 
 const navBarElementsUser = [
   {
-      to: 'home',
+      to: '/user/home',
       title: 'Home',
   },
   {
-      to: '/home/user/assessment',
+      to: '/user/modules',
+      title: 'Courses',
+  },
+  {
+      to: '/user/assessment',
       title: 'Assessment',
   },
   {
-      to: 'communication',
+      to: '/user/communication',
       title: 'Communication',
   },
   {
-      to: 'profil',
+      to: '/user/profil',
       title: 'Profile',
   },
 ]
 
 const navBarElementsAdmin = [
   {
-      to: '/home/admin',
+      to: '/admin/home',
       title: 'Home',
   },
   {
-      to: 'utilisateurs',
+      to: '/admin/utilisateurs',
       title: 'Users',
   },
   {
-      to: '/home/admin/communication',
+      to: '/admin/communication',
       title: 'Communication',
   },
   {
-      to: 'promo',
+      to: '/admin/promo',
       title: 'Promo',
   },
 ]

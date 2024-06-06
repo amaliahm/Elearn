@@ -14,7 +14,7 @@ var
 :root {
 	font-size: calc(16px + (24 - 16) * (100vw - 320px) / (2560 - 320));
 	--white :  rgba(255, 255, 255, 0.87);
-	--main-color : #2124B1;
+	--main-color : #2124b0;
   --blue-color: #03a4ed;
   --button-color: #1979C9;
   --dark-blue: #252641;
@@ -1543,3 +1543,68 @@ h2.accordion-header button {
     padding: 2rem;
   }
 }
+
+
+
+
+.noselect {
+  width: 180px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: var(--main-color);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+  background: var(--main-color);
+ }
+ 
+ .noselect, .noselect span {
+  transition: 500ms;
+ }
+ 
+ .noselect .text {
+  transform: translateX(35px);
+  color: white;
+  font-weight: bold;
+ }
+ 
+ .noselect .icon {
+  position: absolute;
+  border-left: 1px solid var(--main-color);
+  transform: translateX(140px);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+ 
+ .noselect i {
+  width: 15px;
+  fill: #eee;
+  color: white;
+ }
+ 
+ .noselect:hover {
+  background: var(--main-color);
+ }
+ 
+ .noselect:hover .text {
+  color: transparent;
+ }
+ 
+ .noselect:hover .icon {
+  width: 180px;
+  border-left: none;
+  transform: translateX(0);
+ }
+ 
+ .noselect:focus {
+  outline: none;
+ }
+ 
+ .noselect:active .icon i {
+  transform: scale(0.8);
+ }

@@ -11,6 +11,7 @@ import Cohorte from './components/communication/Cohorte.jsx';
 import DetailQuestion from './components/communication/DetailQuestion.jsx';
 import Tags from './components/communication/Tags.jsx';
 import CommunicationAdmin from './components/communication/communicationAdmin.jsx';
+import Courses from './components/courses/Courses.jsx';
 import LandingPageComponent from './components/landing page/LandingPage.jsx';
 import OldQuiz from './components/quiz/OldQuiz.jsx';
 import Quiz from './components/quiz/Quiz.jsx';
@@ -40,16 +41,17 @@ function App() {
           </Route>
 
 
-            <Route key='home-admin' element={<HomeComponentAdmin />} path='/home/admin' exact/>
-            <Route key='home-admin-communication' element={<CommunicationAdmin />} path='/home/admin/communication' exact/>
-            <Route key='home-user' element={<HomeComponentUser />} path='/home/user' exact/>
-            <Route key='cohorte' element={<Cohorte />} path='/home/admin/communication/:id' exact />
-            <Route key='tags' element={<Tags />} path='/home/admin/communication/:id/tags' exact />
-            <Route key='add-question' element={<AddQuestion />} path='/home/admin/communication/:id/add' exact />
-            <Route key='details-question' element={<DetailQuestion />} path='/home/admin/communication/:id/question' exact />
-            <Route key='quiz' element={<Quiz />} path='/home/user/assessment' exact />
-            <Route key='new-quiz' element={<StartQuiz />} path='/home/user/assessment/new/:id' exact />
-            <Route key='old-quiz' element={<OldQuiz />} path='/home/user/assessment/old/:id' exact />
+            <Route key='home-admin' element={<HomeComponentAdmin />} path='/admin/home' exact/>
+            <Route key='home-admin-communication' element={<CommunicationAdmin />} path='/admin/communication' exact/>
+            <Route key='home-user' element={<HomeComponentUser />} path='/user/home' exact/>
+            <Route key='cohorte' element={<Cohorte />} path='/admin/communication/:id' exact />
+            <Route key='tags' element={<Tags />} path='/admin/communication/:id/tags' exact />
+            <Route key='add-question' element={<AddQuestion />} path='/admin/communication/:id/add' exact />
+            <Route key='details-question' element={<DetailQuestion />} path='/admin/communication/:id/question' exact />
+            <Route key='quiz' element={<Quiz />} path='/user/assessment' exact />
+            <Route key='new-quiz' element={<StartQuiz />} path='/user/assessment/new/:id' exact />
+            <Route key='old-quiz' element={<OldQuiz />} path='/user/assessment/old/:id' exact />
+            <Route key='courses' element={<Courses />} path='/user/modules' exact />
 
           
 
