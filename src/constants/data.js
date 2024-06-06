@@ -1,4 +1,4 @@
-import { ACED_Mohammed_Reda, NadiaElouali, acsi, analyse, archi, azza_mohammed, cloud_computing, reseau } from '../assets/images';
+import { ACED_Mohammed_Reda, NadiaElouali, acsi, analyse, archi, azza_mohammed, bdd, cloud_computing, reseau, se, thl } from '../assets/images';
 
 const navBarElementsLanding = [
   {
@@ -71,7 +71,7 @@ const modules = [
   {
     id_module: 1,
     'nom module': 'Architecture ',
-    'nom promo': '2eme annee classe preparatoire',
+    'nom promo': '2éme annee classe preparatoire',
     'niveau': '2CP',
     'annee universitaire': '2023/2024',
     'responsable du module': 'Mr Kazi-Tani',
@@ -91,7 +91,7 @@ const modules = [
   {
     id_module: 4,
     'nom module': 'Réseaux avancés',
-    'nom promo': '2er annee cycle superieur',
+    'nom promo': '2éme annee cycle superieur',
     'niveau': '2CS',
     'annee universitaire': '2023/2024',
     'responsable du module': 'Mr Abdelkader AMRANE',
@@ -101,7 +101,7 @@ const modules = [
   {
     id_module: 5,
     'nom module': 'Cloud Computing',
-    'nom promo': '3er annee cylce superieur',
+    'nom promo': '3éme annee cylce superieur',
     'niveau': '3CS',
     'annee universitaire': '2023/2024',
     'responsable du module': 'Mr Miloud KHALDI',
@@ -111,42 +111,32 @@ const modules = [
   {
     id_module: 6,
     'nom module': 'Base de données Avancées 2',
-    'nom promo': '3er annee cycle superieur',
+    'nom promo': '3éme annee cycle superieur',
     'niveau': '3CS',
     'annee universitaire': '2023/2024',
-    'responsable du module': 'Mr Miloud KHALDI',
-    specialite: 'ISI',
-    image: cloud_computing,
+    'responsable du module': 'Mr Samir AWAD',
+    specialite: 'SIW',
+    image: bdd,
   },
   {
-    id_module: 5,
-    'nom module': 'Cloud Computing',
-    'nom promo': '3er annee classe superieur',
-    'niveau': '3CS',
+    id_module: 7,
+    'nom module': 'Systeme d\'Exploitation 1',
+    'nom promo': '1er annee cycle superieur',
+    'niveau': '1CS',
     'annee universitaire': '2023/2024',
-    'responsable du module': 'Mr Miloud KHALDI',
-    specialite: 'ISI',
-    image: cloud_computing,
+    'responsable du module': 'Mrs Manel BABA-AHMED',
+    specialite: '',
+    image: se,
   },
   {
-    id_module: 5,
-    'nom module': 'Cloud Computing',
-    'nom promo': '3er annee classe superieur',
-    'niveau': '3CS',
+    id_module: 8,
+    'nom module': 'Théorie des Langages',
+    'nom promo': '1er annee cycle superieur',
+    'niveau': '1CS',
     'annee universitaire': '2023/2024',
-    'responsable du module': 'Mr Miloud KHALDI',
-    specialite: 'ISI',
-    image: cloud_computing,
-  },
-  {
-    id_module: 5,
-    'nom module': 'Cloud Computing',
-    'nom promo': '3er annee classe superieur',
-    'niveau': '3CS',
-    'annee universitaire': '2023/2024',
-    'responsable du module': 'Mr Miloud KHALDI',
-    specialite: 'ISI',
-    image: cloud_computing,
+    'responsable du module': 'Mr Mohamed KECHAR',
+    specialite: '',
+    image: thl,
   },
 ]
 

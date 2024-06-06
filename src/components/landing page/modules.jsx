@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { course } from '../../assets/images/index.js'
 import { modules } from '../../constants/data'
 import '../../css/App.css'
@@ -8,6 +9,7 @@ const ModulesComponent = () => {
 
   const [annee, setAnnee] = useState(0)
   const [moduleItems, setModuleItems] = useState(modules)
+  const navigate = useNavigate()
 
   const filterItems = (e, i) => {
     setAnnee(i)
@@ -53,9 +55,10 @@ const ModulesComponent = () => {
                   className={`col-lg-4 col-md-6 portfolio-item wow zoomIn hover:cursor-pointer ${(i % 2) == 0 ? 'first' : 'second'}`} 
                   data-wow-delay={`${i * 0.2 + 0.1}s`}
                   key={`course-${i + 1}`}
+                  onClick={() => navigate('/auth/login')}
                 >
                   <div className='position-relative rounded overflow-hidden'>
-                    <img className="img-fluid w-100" src={course} alt="course" />
+                    <img className="img-fluid w-100" src={moduleItems[e].image == '' ? course : moduleItems[e].image} alt="course" />
                     <div className='portfolio-overlay'>
                       <a className='btn btn-light'>
                         <i className="fa fa-folder fa-2x text-primary"></i>
