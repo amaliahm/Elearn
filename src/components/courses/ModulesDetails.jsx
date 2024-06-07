@@ -1,14 +1,14 @@
-import { ExpandMore, InsertDriveFile } from '@mui/icons-material';
+import { ExpandMore } from '@mui/icons-material';
 import AddIcon from '@mui/icons-material/Add';
-import { Accordion, AccordionDetails, AccordionSummary, Box, Dialog, DialogContent, DialogTitle, Typography } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Dialog, DialogContent, DialogTitle, Typography } from '@mui/material';
 import axios from 'axios';
 import React, { useState } from 'react';
 import AddTdTp from './AddTdTp';
-import chapters from './chapters.json';
 
 
 
-const ModuleDetails = ({course, edit}) => {
+const ModuleDetails = ({course, edit, chapitre}) => {
+  console.log(chapitre)
   const [showAddtdtp, setShowAddtdtp] = useState(false);
   const [expandedAccordion, setExpandedAccordion] = useState('');
 
@@ -38,11 +38,11 @@ const ModuleDetails = ({course, edit}) => {
   return (
     <>
       <>
-        {chapters.map((chapter, index) => (
+        {chapitre !== undefined && chapitre.length !== 0 && Object.keys(chapitre).map((chapter, index) => (
           <Accordion
             key={index}
-            expanded={expandedAccordion === chapter.title}
-            onChange={() => handleChange(chapter.title)}
+            expanded={expandedAccordion === chapitre[chapter].nom}
+            onChange={() => handleChange(chapitre[chapter].nom)}
             sx={{
               boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
               borderRadius: '10px',
@@ -56,18 +56,18 @@ const ModuleDetails = ({course, edit}) => {
           >
             <AccordionSummary expandIcon={<ExpandMore />}  >
               <div className='flex justify-between align-center w-[98%]'>
-                <Typography style={{ fontWeight: 'bold' }}>{chapter.title}</Typography>
-                <AddIcon onClick={handleOpen} style={{
+                <Typography style={{ fontWeight: 'bold' }}>{chapitre[chapter].nom}</Typography>
+                {edit && <AddIcon onClick={handleOpen} style={{
                   fontWeight: 'bold', backgroundColor: 'var(--main-color)', display: 'flex', justifyContent: 'center',
                   padding: '', borderRadius: '50%', color: 'white',
                   alignItems: 'center', cursor: 'pointer', fontSize: '18px'
-                }} />
+                }} />}
               </div>
 
             </AccordionSummary>
             <AccordionDetails>
               <div>
-                {chapter.links.map((link, linkIndex) => (
+                {/* { chapter.links.map((link, linkIndex) => (
                   <Box
                     key={linkIndex}
                     sx={{
@@ -101,7 +101,7 @@ const ModuleDetails = ({course, edit}) => {
                       </div>
                     </div>
                   </Box>
-                ))}
+                ))} */}
               </div>
             </AccordionDetails>
           </Accordion>

@@ -1,8 +1,12 @@
+import { TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
+import axios from 'axios';
 import * as React from 'react';
+import { useState } from 'react';
+import Notification from '../../container/Notification';
 
 const style = {
   position: 'absolute',
@@ -37,6 +41,9 @@ const confirme_button_style = {
   '&:hover' : {
     color: 'var(--main-color)',
   },
+  '&:disabled' : {
+    bgcolor: 'transparent'
+  }
 };
 
 const bull = 
@@ -49,8 +56,36 @@ const bull =
         •
     </span>;
 
-export default function ModalAddChapitre({showModal, setShowModal}) {
+export default function ModalAddChapitre({showModal, setShowModal, details}) {
     const handleClose = () => setShowModal(false);
+    console.log(details)
+    
+    const [name, setName] = useState('')
+    const [notify, setNotify] = useState(false)
+
+     const handleChange = (e) => {
+      e.preventDefault();
+      setName(e.target.value)
+    }
+    const handleConfirm = async (e) => {
+      try {
+        const response = await axios.post('http://localhost:8000/promo/chapitre/', {
+          'nom': name,
+          'Module': details.id,
+        });
+        setNotify(true)
+        setTimeout(() => {
+          setNotify(false)
+          handleClose()
+      }, 2000)
+      setTimeout(() => {
+        window.location.reload();
+    }, 4000)
+        setName('');
+      } catch (error) {
+        console.error('There was an error adding the item!', error);
+      }
+    }
    
     return (
       <div>
@@ -65,60 +100,44 @@ export default function ModalAddChapitre({showModal, setShowModal}) {
             minHeight: 300,
           }}>
             <Typography id="modal-modal-title" variant="h5" component="h2" sx={{mb: '20px'}}>
-              Start Quiz
+              Add Course
             </Typography>
             <hr />
             <Typography id="modal-modal-title" variant="subtitle1" sx={{mb: '20px'}}>
-              Are you sure you want to begin "Quiz n=°1"
+              {bull} Enter the name
             </Typography>
-            <Typography variant="body1" gutterBottom>
-              {bull} Created at: 
-                <span className='font-bold ml-1'> 
-                    May 16, 2024, 6:19 p.m.
-                </span>
-            </Typography>
-            <Typography variant="body1" gutterBottom>
-              {bull} Difficulty: 
-                <span className='font-bold ml-1'> 
-                    Medium
-                </span>
-            </Typography>
-            <Typography variant="body1" gutterBottom>
-              {bull} Topic: 
-                <span className='font-bold ml-1'> 
-                    topic-1.
-                </span>
-            </Typography>
-            <Typography variant="body1" gutterBottom>
-              {bull} Number of questions: 
-                <span className='font-bold ml-1'> 
-                    20
-                </span>
-            </Typography>
-            <Typography variant="body1" gutterBottom>
-              {bull} Time available: 
-                <span className='font-bold ml-1'> 
-                    20 min
-                </span>
-            </Typography>
-            <Typography variant="body1" gutterBottom>
-              {bull} Score needed to pass: 
-                <span className='font-bold ml-1'> 
-                    20.00%
-                </span>
-            </Typography>
+            <TextField 
+              id={"outlined-read-only-input"}
+              label='name' variant="outlined"
+              type={'text'}
+              sx={{
+                borderColor: "transparent",
+                margin: '10px'
+              }}
+              name='name'
+              className={{"& label.Mui-focused": {
+        color: "white"
+      },
+      "& .MuiOutlinedInput-root": {
+        "&.Mui-focused fieldset": {
+          borderColor: "#12f7d6",
+        }
+      }}}
+              onChange={handleChange}
+              defaultValue={name}
+            > </TextField>
             <hr />
             <Box sx={button_box}>
-              <Button sx={button_style} onClick={handleClose}>annuler</Button>
+              <Button sx={button_style} onClick={handleClose}>return</Button>
               <Button 
                 sx={confirme_button_style}
-                onClick={() => {
-                    handleClose()
-                }}
-              >confirmer</Button>
+                disabled={name === ''}
+                onClick={handleConfirm}
+              >add</Button>
             </Box>
           </Box>
         </Modal>
+        {notify && <Notification name='chapitre is added'/>}
       </div>
     );
   }

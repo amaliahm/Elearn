@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { navBarElementsUser } from "../../constants/data";
 import NavBarComponent from "../../container/NavBarComponent";
+import ModalAddChapitre from "./ModalAddChapitre";
 import ModuleDetails from "./ModulesDetails";
 
 const bull = 
@@ -33,6 +34,8 @@ const Courses = () => {
     const [responsable, setResponsable] = useState('')
     const [assistants, setAssistants] = useState([])
     const [chapitre, setChapitre] = useState()
+    const [moduleChapitre, setModuleChapitre] = useState({})
+    const [addCourse, setAddCourse] = useState()
 
     const handleModuleChange = (event) => {
         setSelectedModule(event.target.value);
@@ -40,24 +43,27 @@ const Courses = () => {
     const handleModule = (i) => {
         setInfoModule(message[i])
         if ('Introduction au génie logiciel' === message[i].nom) {
-            setInfoModule(mod => ({
-                ...mod, 
+            setInfoModule({
+                ...message[i], 
                 id: 9
-            }))
+            })
         } else if ('base de donnees' === message[i].nom) {
-            setInfoModule(mod => ({
-                ...mod, 
+            setInfoModule({
+                ...message[i], 
                 id: 10
-            }))
+            })
         } else {
-            setInfoModule(mod => ({
-                ...mod, 
+            setInfoModule({
+                ...message[i], 
                 id: 6
-            }))
+            })
         }
         getResponsable(message[i].responsable, responsable)
         getAssistants(message[i].assistants, assistants)
-        getChapitre(infoModule, chapitre)
+        getChapitre({
+            ...infoModule,
+            ...message[i]
+        }, chapitre)
     }
 
     const getResponsable = (id, table) => {
@@ -89,9 +95,12 @@ const Courses = () => {
         let tmp = []
         console.log(infoModule)
         console.log(chapitre)
-        chapitre.map((e, i) => {
+        Object.keys(chapitre).map((e, i) => {
+            if(chapitre[e].Module === infoModule.id) {
+                tmp.push(chapitre[e])
+                setModuleChapitre(tmp)
+            }
         })
-
     }
 
     useEffect(() => {
@@ -127,7 +136,6 @@ const Courses = () => {
             console.log(error);
             setChapitre([])
           });
-        
     }, []);
     return (
         <>
@@ -206,16 +214,16 @@ const Courses = () => {
                                 </div>
                                 <div className="rounded-2xl w-full bg-[#fff] p-2.5">
                                     <div className="flex justify-between align-center">
-                                        {edit && <button className='noselect'>
+                                        {edit && <button className='noselect' onClick={() => setAddCourse(true)}>
                                           <span className='text'>Add Course</span>
                                           <span className='icon'>
                                               <i class="fa-solid fa-plus"></i>
                                           </span>
                                         </button>}
                                     </div>
-                                    <ModuleDetails course={infoModule} edit={edit}/>
+                                    {addCourse && <ModalAddChapitre showModal={addCourse} setShowModal={setAddCourse} details={infoModule} />}
+                                    <ModuleDetails course={infoModule} edit={edit} chapitre={moduleChapitre}/>
                                 </div>
-                                
                             </div>
                         </Grid>
                     </div>
