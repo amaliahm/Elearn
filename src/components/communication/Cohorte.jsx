@@ -12,7 +12,7 @@ const Cohorte = () => {
     
     return (
         <>
-          <div className='container-xxl bg-white p-0'>
+           <div className='container-xxl bg-white p-0'>
             <div className="absolute top-7 left-5 selected-answer rounded-2xl px-3 py-1">
                 <p>{location.state.cohorte.nom}-{location.state.cohorte.annee}</p>
             </div>
