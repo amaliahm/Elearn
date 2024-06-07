@@ -6,6 +6,8 @@ import React, { useState } from 'react';
 import AddTdTp from './AddTdTp';
 import chapters from './chapters.json';
 
+
+
 const ModuleDetails = ({course, edit}) => {
   const [showAddtdtp, setShowAddtdtp] = useState(false);
   const [expandedAccordion, setExpandedAccordion] = useState('');
@@ -24,7 +26,6 @@ const ModuleDetails = ({course, edit}) => {
   const handleKeyPress = async (event) => {
     if (event.key === 'Enter') {
       try {
-
         const response = await axios.post('/backend-api-endpoint', {
           text: textFieldValue
         });
@@ -36,16 +37,7 @@ const ModuleDetails = ({course, edit}) => {
   };
   return (
     <>
-      <div className='p-7 rounded-2xl w-full bg-[#fff] p-2.5'>
-        <div className='flex justify-between align-center'>
-          <Typography style={{ fontWeight: 'bold', fontSize: '18px' }}>enseignant</Typography>
-          <button className='noselect'>
-            <span className='text'>Add Course</span>
-            <span className='icon'>
-                <i class="fa-solid fa-plus"></i>
-            </span>
-          </button>
-        </div>
+      <>
         {chapters.map((chapter, index) => (
           <Accordion
             key={index}
@@ -114,7 +106,7 @@ const ModuleDetails = ({course, edit}) => {
             </AccordionDetails>
           </Accordion>
         ))}
-      </div>
+      </>
 
       <Dialog open={showAddtdtp} onClose={handleClose}>
         <DialogTitle></DialogTitle>
