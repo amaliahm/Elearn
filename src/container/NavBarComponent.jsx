@@ -3,7 +3,7 @@ import { AiOutlineClose, AiOutlineMenuUnfold } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-scroll";
 
-const NavBarComponent = ({elements, element = 0}) => {
+const NavBarComponent = ({elements, element = 0, user = {}}) => {
   const [menu, setMenu] = useState(false);
   const navigate = useNavigate()
 
@@ -13,7 +13,7 @@ const NavBarComponent = ({elements, element = 0}) => {
 
   const closeMenu = (i, to) => {
     setMenu(false);
-    navigate(to) 
+    navigate(to, { state: user })
   };
 
 
@@ -37,7 +37,7 @@ const NavBarComponent = ({elements, element = 0}) => {
                           duration={500}
                           data-text={e.title}
                           className={`hover:text-brightColor transition-all cursor-pointer no-underline element-link ${element === i ? 'active-link' : ''}`}
-                          onClick={() => navigate(e.to)}
+                          onClick={() => navigate(e.to, { state: user })}
                         >
                             {e.title}
                         </Link>

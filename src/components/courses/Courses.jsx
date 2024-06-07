@@ -2,6 +2,7 @@ import { FormControl, MenuItem, Select } from "@mui/material";
 import Grid from '@mui/material/Grid';
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { navBarElementsUser } from "../../constants/data";
 import NavBarComponent from "../../container/NavBarComponent";
 import ModuleDetails from "./ModulesDetails";
@@ -17,6 +18,8 @@ const bull =
     </span>;
 
 const Courses = () => {
+    const location = useLocation()
+    console.log(location)
     const [selectedModule, setSelectedModule] = useState("Introduction au génie logiciel");
     const [infoModule, setInfoModule] = useState({
         nom: 'Introduction au génie logiciel',
@@ -29,14 +32,32 @@ const Courses = () => {
     const [message, setMessage] = useState([])
     const [responsable, setResponsable] = useState('')
     const [assistants, setAssistants] = useState([])
+    const [chapitre, setChapitre] = useState()
 
     const handleModuleChange = (event) => {
         setSelectedModule(event.target.value);
     };
     const handleModule = (i) => {
         setInfoModule(message[i])
-        getResponsable(infoModule.responsable, responsable)
-        getAssistants(infoModule.assistants, assistants)
+        if ('Introduction au génie logiciel' === message[i].nom) {
+            setInfoModule(mod => ({
+                ...mod, 
+                id: 9
+            }))
+        } else if ('base de donnees' === message[i].nom) {
+            setInfoModule(mod => ({
+                ...mod, 
+                id: 10
+            }))
+        } else {
+            setInfoModule(mod => ({
+                ...mod, 
+                id: 6
+            }))
+        }
+        getResponsable(message[i].responsable, responsable)
+        getAssistants(message[i].assistants, assistants)
+        getChapitre(infoModule, chapitre)
     }
 
     const getResponsable = (id, table) => {
@@ -51,23 +72,26 @@ const Courses = () => {
     }
     const getAssistants = (assistant, table) => {
         let tmp = []
-        console.log(assistant)
-        console.log(table)
-        console.log(infoModule.assistants)
         assistant.map((assist) => {
             table.map(e => {
                 if (e.id == assist) {
                     tmp.push(e.fullname)
                 }
-                console.log(e)
-                console.log(assist)
-                console.log(tmp)
                 setInfoModule(mod => ({
                     ...mod,
                     assistants: tmp
                 }))
             })
         })
+    }
+
+    const getChapitre = (infoModule, chapitre) => {
+        let tmp = []
+        console.log(infoModule)
+        console.log(chapitre)
+        chapitre.map((e, i) => {
+        })
+
     }
 
     useEffect(() => {
@@ -95,9 +119,14 @@ const Courses = () => {
             console.log(error);
             setAssistants([])
           });
-        
-        let trouve = false
-        let i = 0
+        axios.get('http://127.0.0.1:8000/promo/chapitre/')
+          .then(response => {
+            setChapitre(response.data);
+          })
+          .catch(error => {
+            console.log(error);
+            setChapitre([])
+          });
         
     }, []);
     return (
@@ -148,10 +177,10 @@ const Courses = () => {
                                             </Select>
                                         </FormControl>
                                     </Grid>
-                                    <label className="relative inline-flex items-center cursor-pointer w-fit h-fit absolute right-500 top-2" >
+                                    {location.state.fullname === infoModule.responsable && <label className="relative inline-flex items-center cursor-pointer w-fit h-fit absolute right-500 top-2" >
                                         <input type="checkbox" value='edit' className="sr-only peer" onClick={() => setEdit(!edit)} />
                                         <div className="peer ring-0 bg-rose-400 rounded-full outline-none duration-300 after:duration-500 w-12 h-12  shadow-md peer-checked:bg-emerald-500  peer-focus:outline-none  after:content-['✖️'] after:rounded-full after:absolute after:outline-none after:h-10 after:w-10 after:bg-gray-50 after:top-1 after:left-1 after:flex after:justify-center after:items-center  peer-hover:after:scale-75 peer-checked:after:content-['✔️'] after:-rotate-180 peer-checked:after:rotate-0"></div>
-                                    </label>
+                                    </label>}
                                 </div>
                                 <div className="p-7 rounded-2xl w-full bg-[#fff] p-2.5 mb-4">
                                     <span className='font-bold ml-1'>

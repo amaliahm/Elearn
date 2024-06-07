@@ -20,6 +20,7 @@ import ErrorPage from './container/ErrorPage.jsx';
 import HomeComponentAdmin from './container/HomeAdmin.jsx';
 import HomeComponentUser from './container/HomeUser.jsx';
 import ProfileComponent from './container/Profile.jsx';
+import Users from './container/users.jsx';
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
             <Route key='new-quiz' element={<StartQuiz />} path='/user/assessment/new/:id' exact />
             <Route key='old-quiz' element={<OldQuiz />} path='/user/assessment/old/:id' exact />
             <Route key='courses' element={<Courses />} path='/user/modules' exact />
+            <Route key='users' element={<Users />} path='/users' exact />
 
           
 

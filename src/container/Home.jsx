@@ -10,7 +10,7 @@ const Home = ({user}) => {
               <div className='row g-5 py-5'>
                 <div className='col-lg-6 text-center text-lg-start'>
                   <h1 className='text-white mb-4 animated zoomIn'>
-                    {user}, welcome to e-Lear ESI-SBA
+                    {user.fullname}, welcome to e-Lear ESI-SBA
                   </h1>
                   <p className='text-white pb-3 animated zoomIn'>
                     Plateforme pédagogique en ligne de l'École Supérieure en Informatique de Sidi Bel-Abbés
