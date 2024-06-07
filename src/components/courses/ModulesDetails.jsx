@@ -45,21 +45,21 @@ const ModuleDetails = ({course, edit}) => {
             onChange={() => handleChange(chapter.title)}
             sx={{
               boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.2)',
+              borderRadius: '10px',
               '&::before': {
                 boxShadow: 'none'
               },
-              marginTop: '15px',
-              padding: '15px',
+              marginTop: '10px',
+              padding: '10px',
             }}
 
           >
             <AccordionSummary expandIcon={<ExpandMore />}  >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '98%' }}>
+              <div className='flex justify-between align-center w-[98%]'>
                 <Typography style={{ fontWeight: 'bold' }}>{chapter.title}</Typography>
-
                 <AddIcon onClick={handleOpen} style={{
-                  fontWeight: 'bold', backgroundColor: '#04aa6d', display: 'flex', justifyContent: 'center',
-                  padding: '', borderRadius: '50%',
+                  fontWeight: 'bold', backgroundColor: 'var(--main-color)', display: 'flex', justifyContent: 'center',
+                  padding: '', borderRadius: '50%', color: 'white',
                   alignItems: 'center', cursor: 'pointer', fontSize: '18px'
                 }} />
               </div>

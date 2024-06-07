@@ -154,9 +154,6 @@ const Courses = () => {
                                     </label>
                                 </div>
                                 <div className="p-7 rounded-2xl w-full bg-[#fff] p-2.5 mb-4">
-                                    <p className='font-bold ml-1' sx={{mb: '20px'}}>
-                                      Description
-                                    </p>
                                     <span className='font-bold ml-1'>
                                       Description:
                                     </span>
@@ -180,7 +177,7 @@ const Courses = () => {
                                 </div>
                                 <div className="rounded-2xl w-full bg-[#fff] p-2.5">
                                     <div className="flex justify-between align-center">
-                                        {!edit && <button className='noselect'>
+                                        {edit && <button className='noselect'>
                                           <span className='text'>Add Course</span>
                                           <span className='icon'>
                                               <i class="fa-solid fa-plus"></i>
