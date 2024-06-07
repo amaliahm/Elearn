@@ -1,11 +1,14 @@
-import AddToPhotosIcon from '@mui/icons-material/AddToPhotos';
 import { Button, FormControl, MenuItem, Select, TextField } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import React, { useRef, useState } from 'react';
+import Notification from '../../container/Notification';
 
-const AddTdTp = ({ chapterId }) => {
+const AddTdTp = ({ chapterId, setInsert, onClose }) => {
+  console.log(chapterId)
   const [selectedOption, setSelectedOption] = useState('');
+  const [notify, setNotify] = useState(false)
   const [name, setName] = useState('');
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState('');
@@ -35,18 +38,28 @@ const AddTdTp = ({ chapterId }) => {
   };
 
   const handleSubmit = () => {
-    // Create a JSON object containing the form data
     const formData = {
-      selectedOption,
-      name,
-      file: file ? file.name : null,
-      fileName,
-      chapterId
-
-    };
-
-    
-    axios.post('your-backend-api-url', formData)
+      nom: name,
+      file: file ,
+      type: selectedOption,
+      chapitre: chapterId,
+      selectedOption: selectedOption,
+    };    
+    setInsert(true)
+    setNotify(true)
+    setTimeout(() => {
+      setNotify(false)
+      onClose()
+  }, 2000)
+    console.log(formData)
+    const csrfToken = Cookies.get('csrftoken');
+    axios.post(`http://127.0.0.1:8000/promo/${selectedOption === ('td' || 'tp') ? 'fiche' : selectedOption}/`, formData,  {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'X-CSRFToken': csrfToken,
+      },
+      withCredentials: true,
+    })
       .then(response => {
         console.log(' data sent successfully:', response.data);
         setSelectedOption('');
@@ -62,11 +75,8 @@ const AddTdTp = ({ chapterId }) => {
 
   return (
     <div  style={{ borderRadius: '10px',marginTop:'10px',padding: '30px',Width:'600px',height:'300px', boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.1)'}}>
+      {notify && <Notification name='file is added' />}
       <FormControl style={{ width: '100%', marginBottom: '20px' }}>
-      <Typography variant="h5" component="div" color="textSecondary" >
-        <AddToPhotosIcon /> 
-    </Typography>
-    
         <Select
           value={selectedOption}
           onChange={handleChange}
@@ -88,12 +98,10 @@ const AddTdTp = ({ chapterId }) => {
             }
           }}
         >
-        
-          
           <MenuItem value="td">TD</MenuItem>
           <MenuItem value="tp">TP</MenuItem>
-          <MenuItem value="mooc">Devoir</MenuItem>
-          <MenuItem value="mooc">MOOC</MenuItem>
+          <MenuItem value="devoir">devoir</MenuItem>
+          <MenuItem value="mooc">mooc</MenuItem>
           <MenuItem value="lienexterne">ressource</MenuItem>
         </Select>
       </FormControl>

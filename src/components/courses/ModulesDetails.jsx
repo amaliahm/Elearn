@@ -1,16 +1,19 @@
-import { ExpandMore } from '@mui/icons-material';
+import { ExpandMore, InsertDriveFile } from '@mui/icons-material';
 import AddIcon from '@mui/icons-material/Add';
-import { Accordion, AccordionDetails, AccordionSummary, Dialog, DialogContent, DialogTitle, Typography } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Box, Dialog, DialogContent, DialogTitle, Typography } from '@mui/material';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AddTdTp from './AddTdTp';
 
 
 
-const ModuleDetails = ({course, edit, chapitre}) => {
+
+const ModuleDetails = ({course, edit, chapitre, user}) => {
+  const [insert, setInsert] = useState(false)
   console.log(chapitre)
   const [showAddtdtp, setShowAddtdtp] = useState(false);
   const [expandedAccordion, setExpandedAccordion] = useState('');
+  const [fiche, setFiche] = useState({})
 
   const handleOpen = () => {
     setShowAddtdtp(true);
@@ -22,19 +25,16 @@ const ModuleDetails = ({course, edit, chapitre}) => {
   const handleChange = (chapterTitle) => {
     setExpandedAccordion(chapterTitle === expandedAccordion ? '' : chapterTitle);
   }
-  const [textFieldValue, setTextFieldValue] = useState('');
-  const handleKeyPress = async (event) => {
-    if (event.key === 'Enter') {
-      try {
-        const response = await axios.post('/backend-api-endpoint', {
-          text: textFieldValue
-        });
-        console.log(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  };
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/promo/fiche/')
+      .then(response => {
+        setFiche(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+        setFiche([])
+      });
+   }, []);
   return (
     <>
       <>
@@ -67,9 +67,9 @@ const ModuleDetails = ({course, edit, chapitre}) => {
             </AccordionSummary>
             <AccordionDetails>
               <div>
-                {/* { chapter.links.map((link, linkIndex) => (
+                {(user.fullname === 'othmane BOHENNI' || (insert && fiche.length !== 0 && fiche[0].Chapitre === chapitre[0].id)) && Object.keys(fiche).map((e, i) => (
                   <Box
-                    key={linkIndex}
+                    key={i}
                     sx={{
                       border: '0.5px solid #ccc',
                       borderRadius: '4px',
@@ -85,23 +85,23 @@ const ModuleDetails = ({course, edit, chapitre}) => {
                       <InsertDriveFile style={{ marginRight: '10px' }} />
                       <Typography>
                         <a
-                          href={link.url}
+                          href='file:///home/amina/project/web/django/backend_1CS-main/final_project-main/DRF_Auth/uploads/td01.pdf'
                           target="_blank"
                           rel="noopener noreferrer"
                           style={{ color: 'rgb(27,117,208)', textDecoration: 'none' }}
                         >
-                          {link.name}
+                          {fiche[e].nom}
                         </a>
                       </Typography>
                     </div>
                     <div>
                       <div style={{ display: 'flex', gap: '10px' }}>
-                        <Typography>{link.despose_date}</Typography>
+                        <Typography>{fiche[e].date}</Typography>
 
                       </div>
                     </div>
                   </Box>
-                ))} */}
+                ))}
               </div>
             </AccordionDetails>
           </Accordion>
@@ -109,9 +109,9 @@ const ModuleDetails = ({course, edit, chapitre}) => {
       </>
 
       <Dialog open={showAddtdtp} onClose={handleClose}>
-        <DialogTitle></DialogTitle>
+        <DialogTitle>Add ressource</DialogTitle>
         <DialogContent>
-          <AddTdTp />
+          {chapitre.length > 0 && <AddTdTp chapterId={chapitre[0].id} setInsert={setInsert} onClose={handleClose} />}
         </DialogContent>
 
       </Dialog>

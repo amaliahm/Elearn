@@ -7,6 +7,7 @@ import { navBarElementsUser } from "../../constants/data";
 import NavBarComponent from "../../container/NavBarComponent";
 import ModalAddChapitre from "./ModalAddChapitre";
 import ModuleDetails from "./ModulesDetails";
+import { useNavigate } from "react-router-dom";
 
 const bull = 
     <span style={{
@@ -20,6 +21,7 @@ const bull =
 
 const Courses = () => {
     const location = useLocation()
+    const navigate = useNavigate()
     console.log(location)
     const [selectedModule, setSelectedModule] = useState("Introduction au génie logiciel");
     const [infoModule, setInfoModule] = useState({
@@ -63,7 +65,7 @@ const Courses = () => {
         getChapitre({
             ...infoModule,
             ...message[i]
-        }, chapitre)
+        }, chapitre, message[i].nom)
     }
 
     const getResponsable = (id, table) => {
@@ -91,16 +93,34 @@ const Courses = () => {
         })
     }
 
-    const getChapitre = (infoModule, chapitre) => {
+    const getChapitre = (infoModule, chapitre, nom) => {
         let tmp = []
+        setModuleChapitre({})
         console.log(infoModule)
         console.log(chapitre)
-        Object.keys(chapitre).map((e, i) => {
-            if(chapitre[e].Module === infoModule.id) {
-                tmp.push(chapitre[e])
-                setModuleChapitre(tmp)
-            }
-        })
+        if (nom === 'reseau') {
+            Object.keys(chapitre).map((e, i) => {
+                if(chapitre[e].Module === 6) {
+                    tmp.push(chapitre[e])
+                    setModuleChapitre(tmp)
+                }
+            })
+        } else if (nom === 'base de donnees') {
+            Object.keys(chapitre).map((e, i) => {
+                if(chapitre[e].Module === 10) {
+                    tmp.push(chapitre[e])
+                    setModuleChapitre(tmp)
+                }
+            })
+        } else {
+            Object.keys(chapitre).map((e, i) => {
+                if(chapitre[e].Module === 9) {
+                    tmp.push(chapitre[e])
+                    setModuleChapitre(tmp)
+                }
+            })
+        }
+        
     }
 
     useEffect(() => {
@@ -145,6 +165,10 @@ const Courses = () => {
                 <div className="container-xxl p-0 mb-5">
                     <div className="container-xxl py-5">
                         <div className="container px-lg-5">
+                            {location.state.fullname === infoModule.responsable && <div className="hover:cursor-pointer" style={{background: 'var(--main-color)', color: 'white', position: 'absolute', top: '100px', right: '50px', borderRadius: '6px', padding: '5px 15px'}} >
+                                <a  href='http://localhost:8000/'></a>
+                                <i class="fa-solid fa-video"></i>   
+                            </div>}
                             <div className='section-title position-relative text-center mb-5 mt-5 pb-2 wow fadeInUp' data-wow-delay="0.1s">
                                 <h6 className="position-relative d-inline text-primary ps-4">
                                     Courses
@@ -222,7 +246,7 @@ const Courses = () => {
                                         </button>}
                                     </div>
                                     {addCourse && <ModalAddChapitre showModal={addCourse} setShowModal={setAddCourse} details={infoModule} />}
-                                    <ModuleDetails course={infoModule} edit={edit} chapitre={moduleChapitre}/>
+                                    <ModuleDetails course={infoModule} edit={edit} chapitre={moduleChapitre} user={location.state} />
                                 </div>
                             </div>
                         </Grid>
