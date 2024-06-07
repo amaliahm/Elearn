@@ -2,12 +2,11 @@ import { FormControl, MenuItem, Select } from "@mui/material";
 import Grid from '@mui/material/Grid';
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { navBarElementsUser } from "../../constants/data";
 import NavBarComponent from "../../container/NavBarComponent";
 import ModalAddChapitre from "./ModalAddChapitre";
 import ModuleDetails from "./ModulesDetails";
-import { useNavigate } from "react-router-dom";
 
 const bull = 
     <span style={{
@@ -157,6 +156,9 @@ const Courses = () => {
             setChapitre([])
           });
     }, []);
+    const my_const = () => {
+        window.open("http://localhost:8000", '_blank');
+    }
     return (
         <>
             <div className='container-xxl bg-white p-0'>
@@ -165,8 +167,8 @@ const Courses = () => {
                 <div className="container-xxl p-0 mb-5">
                     <div className="container-xxl py-5">
                         <div className="container px-lg-5">
-                            {location.state.fullname === infoModule.responsable && <div className="hover:cursor-pointer" style={{background: 'var(--main-color)', color: 'white', position: 'absolute', top: '100px', right: '50px', borderRadius: '6px', padding: '5px 15px'}} >
-                                <a  href='http://localhost:8000/'></a>
+                            {location.state.fullname === infoModule.responsable && <div className="hover:cursor-pointer" style={{background: 'var(--main-color)', color: 'white', position: 'absolute', top: '100px', right: '50px', borderRadius: '6px', padding: '5px 15px'}} onClick={my_const} >
+                                
                                 <i class="fa-solid fa-video"></i>   
                             </div>}
                             <div className='section-title position-relative text-center mb-5 mt-5 pb-2 wow fadeInUp' data-wow-delay="0.1s">

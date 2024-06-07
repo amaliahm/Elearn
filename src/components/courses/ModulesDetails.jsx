@@ -81,11 +81,10 @@ const ModuleDetails = ({course, edit, chapitre, user}) => {
                       justifyContent: 'space-between',
                     }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <div className='hover:cursor-pointer' onClick={() => window.open('/td01.pdf', '_blank')} style={{ display: 'flex', alignItems: 'center' }}>
                       <InsertDriveFile style={{ marginRight: '10px' }} />
-                      <Typography>
+                      <Typography >
                         <a
-                          href='file:///home/amina/project/web/django/backend_1CS-main/final_project-main/DRF_Auth/uploads/td01.pdf'
                           target="_blank"
                           rel="noopener noreferrer"
                           style={{ color: 'rgb(27,117,208)', textDecoration: 'none' }}
