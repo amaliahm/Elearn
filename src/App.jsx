@@ -43,12 +43,12 @@ function App() {
 
 
             <Route key='home-admin' element={<HomeComponentAdmin />} path='/admin/home' exact/>
-            <Route key='home-admin-communication' element={<CommunicationAdmin />} path='/admin/communication' exact/>
+            <Route key='home-admin-communication' element={<CommunicationAdmin />} path='/user/communication' exact/>
             <Route key='home-user' element={<HomeComponentUser />} path='/user/home' exact/>
-            <Route key='cohorte' element={<Cohorte />} path='/admin/communication/:id' exact />
-            <Route key='tags' element={<Tags />} path='/admin/communication/:id/tags' exact />
-            <Route key='add-question' element={<AddQuestion />} path='/admin/communication/:id/add' exact />
-            <Route key='details-question' element={<DetailQuestion />} path='/admin/communication/:id/question' exact />
+            <Route key='cohorte' element={<Cohorte />} path='/user/communication/:id' exact />
+            <Route key='tags' element={<Tags />} path='/user/communication/:id/tags' exact />
+            <Route key='add-question' element={<AddQuestion />} path='/user/communication/:id/add' exact />
+            <Route key='details-question' element={<DetailQuestion />} path='/user/communication/:id/question' exact />
             <Route key='quiz' element={<Quiz />} path='/user/assessment' exact />
             <Route key='new-quiz' element={<StartQuiz />} path='/user/assessment/new/:id' exact />
             <Route key='old-quiz' element={<OldQuiz />} path='/user/assessment/old/:id' exact />

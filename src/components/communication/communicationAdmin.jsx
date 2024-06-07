@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { cohorte } from "../../assets/images"
 import { groupe_communication, navBarElementsAdmin } from "../../constants/data"
 import NavBarComponent from "../../container/NavBarComponent"
@@ -7,6 +7,8 @@ import NavBarComponent from "../../container/NavBarComponent"
 const CommunicationAdmin = () => {
 
     const navigate = useNavigate()
+    const location = useLocation()
+    console.log(location)
 
     return (
         <>
@@ -72,7 +74,10 @@ const CommunicationAdmin = () => {
                                                                 </h6>
                                                             </li>
                                                         </ul>
-                                                        <a href="#" onClick={() => navigate(`/home/admin/communication/${groupe_communication[e].id}`)}>
+                                                        <a onClick={() => navigate(`/user/communication/${groupe_communication[e].id}`, {state: {
+                                                            user: location.state,
+                                                            cohorte: groupe_communication[e]
+                                                        }})}>
                                                             <i className="fa fa-angle-right"></i>
                                                         </a>
                                                     </div>

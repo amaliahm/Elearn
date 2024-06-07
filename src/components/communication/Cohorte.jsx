@@ -1,6 +1,4 @@
 import { Button } from "@mui/material";
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { Accordion } from 'react-bootstrap';
 import { BsArrowRightShort } from 'react-icons/bs';
 import { FaHashtag, FaQuestion } from "react-icons/fa";
@@ -8,27 +6,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { questions } from "../../constants/data";
 
 const Cohorte = () => {
-
     const navigate = useNavigate()
     const location = useLocation()
-    const [message, setMessage] = useState('');
-
-    useEffect(() => {
-        axios.get('http://localhost:8000/api/hello-world/')
-          .then(response => {
-            setMessage(response.data.message);
-            console.log(message)
-          })
-          .catch(error => {
-            console.log(error);
-          });
-      }, []);
+    console.log(location)
     
     return (
         <>
           <div className='container-xxl bg-white p-0'>
             <div className="absolute top-7 left-5 selected-answer rounded-2xl px-3 py-1">
-                <p>Cohorte-1CS 2023-2024</p>
+                <p>{location.state.cohorte.nom}-{location.state.cohorte.annee}</p>
             </div>
             <div className="absolute top-1 right-5">
                 <Button className="add-comm" style={{color: 'white'}} >

@@ -283,19 +283,11 @@ const groupe_communication = [
   },
   {
     id: 1,
-    nom: '2CS',
+    nom: 'groupe general',
     annee:'2023-2024',
-    student: 150,
-    question: 200,
-    answer: 700,
-  },
-  {
-    id: 2,
-    nom: '2CP',
-    annee:'2023-2024',
-    student: 250,
-    question: 364,
-    answer: 598,
+    student: 678,
+    question: 15,
+    answer: 64,
   },
 ]
 
