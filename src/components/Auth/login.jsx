@@ -12,6 +12,23 @@ const Login = () => {
   const [submitError, setSubmitError] = useState('');
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const navigate = useNavigate()
+  let charge_cours = {
+    "id": 24,
+    "fullname": "bensaber",
+    "email": "bensaberr@esi-sba.dz",
+    "matricule": "27055885",
+    "password": "255"
+}
+let etudiant = {
+    "id": 22,
+    "fullname": "othmane BOHENNI",
+    "email": "o.bohenni@esi-sba.dz",
+    "matricule": "12770789",
+    "password": "12770789",
+    "promo": 2,
+    "niveau": 1,
+    "cohorte": 1
+}
 
   const formik = useFormik({
     initialValues: {
@@ -24,6 +41,12 @@ const Login = () => {
     }),
     onSubmit: async (values) => {
       setSubmitting(true);
+      console.log(values)
+      if (values.email === 'bensaber@esi-sba.dz') {
+        navigate('/user/home', { state: charge_cours })
+      } else {
+        navigate('/user/home', { state: etudiant })
+      }
       try {
         // Send login request to backend using Axios
         const response = await axios.post('https://your-api-url/login', values);
@@ -36,6 +59,7 @@ const Login = () => {
         setSubmitSuccess(false);
         setSubmitError(error.response.data.message || 'An error occurred during login.');
       }
+     
     }
   });
 
@@ -125,7 +149,6 @@ const Login = () => {
                   <Button
                     variant="contained"
                     type="submit"
-                    // disabled={submitting}
                     sx={{ width: '50%', marginLeft: '150px', fontFamily: 'Poppins', fontWeight: 'bold' }}
                   >
                     Log in

@@ -35,9 +35,6 @@ const ModuleDetails = ({course, edit, chapitre, user}) => {
         setFiche([])
       });
    }, []);
-   console.log(fiche[0].Chapitre === chapitre[0].id)
-   console.log(fiche[0])
-   console.log(chapitre[0])
   return (
     <>
       <>

@@ -814,7 +814,8 @@ h6,
   transition: .5s;
 }
 
-.service-item:hover {
+.service-item:hover ,
+.service-item-hover {
   background: var(--primary);
 }
 
@@ -823,7 +824,8 @@ h6,
   transition: .5s;
 }
 
-.service-item:hover h5{
+.service-item:hover h5,
+.service-item-hover h5{
   color: var(--light);
 }
 
@@ -835,7 +837,8 @@ h6,
   z-index: 1;
 }
 
-.service-item:hover a.btn {
+.service-item:hover a.btn,
+.service-item-hover a.btn {
   color: var(--primary);
 }
 
@@ -852,7 +855,8 @@ h6,
   z-index: -1;
 }
 
-.service-item:hover a.btn::before {
+.service-item:hover a.btn::before,
+.service-item-hover a.btn::before {
   width: 100%;
   background: var(--light);
 }
@@ -1432,7 +1436,7 @@ h2.accordion-header button {
 }
 
 .old-question ul .wrong-answer  {
-  background: rgba(255, 29, 72, 0.2);
+  background: rgba(255, 29, 72, 0.4);
   border: 1px solid rgb(255, 29, 72);
 }
 

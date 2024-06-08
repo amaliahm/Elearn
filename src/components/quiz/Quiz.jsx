@@ -9,6 +9,7 @@ const Quiz = () => {
 
     const navigate = useNavigate()
     const [update, setUpdate] = useState(false)
+    const [first, setFirst] = useState(false)
 
     return (
         <>
@@ -30,20 +31,28 @@ const Quiz = () => {
                         <div className="service">
                             {quizes.map((e, i) => (
                                 <div key={e.id} className="row g-4">                    
-                                    <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
-                                        <div className="service-item d-flex flex-column justify-content-center text-center rounded">
+                                    {(e.id === 0 && !first) ? <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+                                        <div className={`service-item d-flex flex-column justify-content-center text-center rounded service-item-hover`} >
                                             <h5 className="mb-3">{e.nom}</h5>
                                             <a className="btn px-3 mt-auto mx-auto" onClick={() => {
-                                                e.id === 0 ? setUpdate(true) : navigate(`/home/user/assessment/old/${e.id}`)
+                                                 setUpdate(true)
                                             }}>Read More</a>
                                         </div>
-                                    </div>
+                                    </div> : (e.id !== 0) && <div className="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.6s">
+                                        <div className={`service-item d-flex flex-column justify-content-center text-center rounded `} >
+                                            <h5 className="mb-3">{e.nom}</h5>
+                                            <a className="btn px-3 mt-auto mx-auto" onClick={() => {
+                                                 navigate(`/user/assessment/old/${e.id}`)
+                                            }}>Read More</a>
+                                        </div>
+                                    </div>}
                                 </div>
                             ))}
                         </div>
                         {update && <ModalUpdate
                           setShowModal={setUpdate}
                           showModal={update}
+                          setFirst={setFirst}
                         />}
                     </div>
                 </div>

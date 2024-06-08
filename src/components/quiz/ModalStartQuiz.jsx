@@ -50,7 +50,7 @@ const bull =
         •
     </span>;
 
-export default function ModalUpdate({showModal, setShowModal}) {
+export default function ModalUpdate({showModal, setShowModal, setFirst}) {
     const handleClose = () => setShowModal(false);
     const navigate = useNavigate()
    
@@ -115,7 +115,8 @@ export default function ModalUpdate({showModal, setShowModal}) {
               <Button 
                 sx={confirme_button_style}
                 onClick={() => {
-                    navigate(`/home/user/assessment/new/${10}`)
+                  setFirst(true)
+                    navigate(`/user/assessment/new/${10}`)
                     handleClose()
                 }}
               >confirmer</Button>

@@ -13,6 +13,7 @@ import Tags from './components/communication/Tags.jsx';
 import CommunicationAdmin from './components/communication/communicationAdmin.jsx';
 import Courses from './components/courses/Courses.jsx';
 import LandingPageComponent from './components/landing page/LandingPage.jsx';
+import AddQuiz from './components/quiz/AddQuiz.jsx';
 import OldQuiz from './components/quiz/OldQuiz.jsx';
 import Quiz from './components/quiz/Quiz.jsx';
 import StartQuiz from './components/quiz/StartQuiz.jsx';
@@ -54,6 +55,7 @@ function App() {
             <Route key='old-quiz' element={<OldQuiz />} path='/user/assessment/old/:id' exact />
             <Route key='courses' element={<Courses />} path='/user/modules' exact />
             <Route key='users' element={<Users />} path='/users' exact />
+            <Route key='add-quiz' element={<AddQuiz />} path='/user/assessment/add' exact />
 
           
 

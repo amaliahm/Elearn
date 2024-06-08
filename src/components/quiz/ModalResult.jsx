@@ -103,7 +103,7 @@ export default function ModalResult({showModal, setShowModal, score, totalQuesti
               <Button 
                 sx={confirme_button_style}
                 onClick={() => {
-                    navigate(`/home/user/assessment`)
+                    navigate(`/user/assessment`)
                     handleClose()
                 }}
               >

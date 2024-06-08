@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function TimeComponent() {
-    const [time, setTime] = useState(10000);
+    const [time, setTime] = useState(15000);
     const navigate = useNavigate()
  
     React.useEffect(() => {
@@ -12,7 +12,7 @@ function TimeComponent() {
         }, 10);
         if (time === 0) {
             clearInterval(interval);
-            navigate('/home/user/assessment')
+            navigate('/user/assessment')
         }
         return () => {
             clearInterval(interval);
