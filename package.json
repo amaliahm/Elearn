@@ -18,6 +18,7 @@
     "@mui/material": "^5.15.15",
     "@react-three/drei": "^9.99.5",
     "@react-three/fiber": "^8.16.1",
+    "ag-grid-react": "^31.3.2",
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "formik": "^2.4.6",

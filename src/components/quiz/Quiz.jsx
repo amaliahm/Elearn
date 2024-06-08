@@ -1,3 +1,4 @@
+import { Button } from "@mui/material"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { navBarElementsUser, quizes } from "../../constants/data"
@@ -28,6 +29,12 @@ const Quiz = () => {
                                 </h1>
                             </div>
                         </div>
+                        <div className="absolute top-16 right-5">
+                <Button className="add-comm" style={{color: 'white'}} >
+                    <i class="fa-solid fa-plus" onClick={() => navigate('/user/assessment/add')}></i>
+                </Button>
+                
+            </div>
                         <div className="service">
                             {quizes.map((e, i) => (
                                 <div key={e.id} className="row g-4">                    
