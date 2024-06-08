@@ -1,7 +1,6 @@
 import { Button, FormControl, MenuItem, Select, TextField } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import axios from 'axios';
-import Cookies from 'js-cookie';
 import React, { useRef, useState } from 'react';
 import Notification from '../../container/Notification';
 
@@ -43,7 +42,6 @@ const AddTdTp = ({ chapterId, setInsert, onClose }) => {
       file: file ,
       type: selectedOption,
       chapitre: chapterId,
-      selectedOption: selectedOption,
     };    
     setInsert(true)
     setNotify(true)
@@ -52,13 +50,10 @@ const AddTdTp = ({ chapterId, setInsert, onClose }) => {
       onClose()
   }, 2000)
     console.log(formData)
-    const csrfToken = Cookies.get('csrftoken');
     axios.post(`http://127.0.0.1:8000/promo/${selectedOption === ('td' || 'tp') ? 'fiche' : selectedOption}/`, formData,  {
       headers: {
         'Content-Type': 'multipart/form-data',
-        'X-CSRFToken': csrfToken,
       },
-      withCredentials: true,
     })
       .then(response => {
         console.log(' data sent successfully:', response.data);

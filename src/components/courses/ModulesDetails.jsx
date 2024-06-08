@@ -35,6 +35,9 @@ const ModuleDetails = ({course, edit, chapitre, user}) => {
         setFiche([])
       });
    }, []);
+   console.log(fiche[0].Chapitre === chapitre[0].id)
+   console.log(fiche[0])
+   console.log(chapitre[0])
   return (
     <>
       <>
@@ -67,7 +70,7 @@ const ModuleDetails = ({course, edit, chapitre, user}) => {
             </AccordionSummary>
             <AccordionDetails>
               <div>
-                {(user.fullname === 'othmane BOHENNI' || (insert && fiche.length !== 0 && fiche[0].Chapitre === chapitre[0].id)) && Object.keys(fiche).map((e, i) => (
+                {(user.fullname === 'othmane BOHENNI' || insert) && fiche.length !== 0 && fiche[0].Chapitre === chapitre[0].id && Object.keys(fiche).map((e, i) => (
                   <Box
                     key={i}
                     sx={{
