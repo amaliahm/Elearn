@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom"
 import { cohorte } from "../../assets/images"
-import { groupe_communication, navBarElementsAdmin } from "../../constants/data"
+import { groupe_communication, navBarElementsUser } from "../../constants/data"
 import NavBarComponent from "../../container/NavBarComponent"
 
 
@@ -13,7 +13,7 @@ const CommunicationAdmin = () => {
     return (
         <>
           <div className='container-xxl bg-white p-0'>
-            <NavBarComponent elements={navBarElementsAdmin} element={2}/>
+            <NavBarComponent elements={navBarElementsUser} element={2}/>
             <main>
                 <div className="container-xxl p-0 mb-5">
                     <div className="container-xxl py-5">
@@ -74,7 +74,7 @@ const CommunicationAdmin = () => {
                                                                 </h6>
                                                             </li>
                                                         </ul>
-                                                        <a onClick={() => navigate(`/user/communication/${groupe_communication[e].id}`, {state: {
+                                                        <a onClick={() => i=== 0 ? window.open("http://127.0.0.1:8080/", '_blank') : navigate(`/user/communication/${groupe_communication[e].id}`, {state: {
                                                             user: location.state,
                                                             cohorte: groupe_communication[e]
                                                         }})}>
